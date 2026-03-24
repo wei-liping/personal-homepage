@@ -3,256 +3,154 @@ import CaseLayout, { Section, Decision } from "../components/CaseLayout";
 export default function CaseWuliAi() {
   return (
     <CaseLayout
-      title="悟理 AI —— 苏格拉底式物理私教"
+      title="悟理 AI — 苏格拉底式物理学习助手"
       subtitle="Case Study #1"
-      tags={["AI", "教育科技", "React", "启发式教学", "SM-2 算法"]}
-      tldr="针对高中生物理学习痛点，通过对 3 款主流 AI 产品的系统评测，识别出 4 个核心缺陷，设计并实现了一个基于苏格拉底式教学法的 AI 物理辅导工具。核心差异：不是「讲完你听」，而是「每步你都得证明你懂了」。"
+      tags={["AI 教育", "高中物理", "React", "SM-2", "启发式教学"]}
+      tldr="悟理 AI 是一个帮助高中生从“会看答案”走向“真正理解”的学习产品。通过分步确认、变式训练与间隔复习，把解题过程转化为可验证的理解过程。"
       github="https://github.com/wei-liping/wuli-ai-tutor"
       live="https://wei-liping.github.io/wuli-ai-tutor/"
       next={{ to: "/case/echomate", label: "EchoMate" }}
     >
-      {/* ── 背景 ── */}
-      <Section icon="🧩" title="背景">
+      <Section icon="📌" title="项目概述（Overview）">
         <p>
-          高中物理一直是让许多学生头疼的科目。不是因为物理「太难」，而是传统教学和现有
-          AI
-          工具都忽略了一个关键问题：学生需要的不是「答案」，而是「理解的过程」。
+          悟理 AI 是一个 AI 物理辅导产品，帮助高中生在真实解题场景中建立模型化思维，
+          并通过引导式学习流程提升长期掌握能力。
         </p>
-        <div className="rounded-lg border border-white/5 bg-white/[0.02] p-5">
-          <p className="text-xs font-mono text-accent/50 mb-3">目标用户</p>
-          <p className="text-slate-300">高中物理学习困难的学生，尤其是：</p>
-          <ul className="list-disc list-inside mt-2 space-y-1 text-slate-400">
-            <li>基础薄弱，看 AI 解答都看不懂的学生</li>
-            <li>一做题就蒙，不知道第一步怎么想到的</li>
-            <li>讲完就忘，换个情境还是不会</li>
-          </ul>
-        </div>
-      </Section>
-
-      {/* ── 我的角色 ── */}
-      <Section icon="👤" title="我的角色">
-        <p>
-          独立完成全流程：用户调研 → 竞品分析 → 产品定义 → 交互设计 → 前端开发 →
-          部署上线。 从问题发现到产品落地，覆盖了产品经理核心工作的每一个环节。
-        </p>
-      </Section>
-
-      {/* ── 目标 ── */}
-      <Section icon="🎯" title="目标与指标">
         <p className="text-slate-300 font-medium">
-          核心目标：将「解题」转化为「理解」
+          一句话：一个帮助高中生理解物理思维过程、而不是只记住答案的 AI 学习工具。
         </p>
-        <div className="grid sm:grid-cols-3 gap-4 mt-2">
-          {[
-            {
-              metric: "单步理解确认率",
-              desc: "每个教学步骤，学生是否真正理解",
-            },
-            {
-              metric: "变式题正确率",
-              desc: "换个情境，是否还会做",
-            },
-            {
-              metric: "知识点掌握周期",
-              desc: "从首次接触到稳定掌握的时间",
-            },
-          ].map((item) => (
-            <div
-              key={item.metric}
-              className="rounded-lg border border-white/5 bg-white/[0.02] p-4"
-            >
-              <p className="text-xs font-mono text-accent/60 mb-1">
-                {item.metric}
-              </p>
-              <p className="text-xs text-slate-400">{item.desc}</p>
-            </div>
-          ))}
-        </div>
       </Section>
 
-      {/* ── 研究与发现 ── */}
-      <Section icon="🔍" title="研究与发现">
+      <Section icon="🎯" title="Problem（用户问题）">
+        <p>用户在学习物理时的典型卡点是“看得懂讲解，但自己不会做”。</p>
+        <ul className="list-disc list-inside mt-2 space-y-1 text-slate-400">
+          <li>场景 1：看完完整解答后仍不知道第一步如何下手</li>
+          <li>场景 2：换一个题目情境就不会迁移</li>
+          <li>场景 3：短期理解后很快遗忘，复习缺乏节奏</li>
+        </ul>
+        <p>本质问题：用户缺的不是答案，而是“可重复的思考过程”。</p>
+      </Section>
+
+      <Section icon="🔍" title="Insight（关键洞察）">
         <p>
-          对通义千问、豆包、腾讯元宝三款主流 AI 问答产品进行了教育场景深度评测。
-          即使评分最高的通义千问（综合 4.68/5），在物理辅导中仍存在 4
-          大共性缺陷：
+          对主流 AI 问答产品在教育场景进行对比后，我发现它们普遍采用“一次性完整输出”模式。
         </p>
-        <div className="overflow-x-auto mt-2">
-          <table className="w-full text-xs">
-            <thead>
-              <tr className="border-b border-white/10">
-                <th className="text-left py-3 pr-4 text-accent/60 font-mono font-normal">
-                  痛点
-                </th>
-                <th className="text-left py-3 pr-4 text-accent/60 font-mono font-normal">
-                  学生的声音
-                </th>
-                <th className="text-left py-3 text-accent/60 font-mono font-normal">
-                  现有 AI 表现
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-slate-400">
-              <tr className="border-b border-white/5">
-                <td className="py-3 pr-4 text-slate-300">缺乏学情诊断</td>
-                <td className="py-3 pr-4">"AI 讲的太难了/太简单了"</td>
-                <td className="py-3">三款均未主动询问学生水平</td>
-              </tr>
-              <tr className="border-b border-white/5">
-                <td className="py-3 pr-4 text-slate-300">被动式输出</td>
-                <td className="py-3 pr-4">"不知道第一步怎么想到的"</td>
-                <td className="py-3">一次性输出完整解答</td>
-              </tr>
-              <tr className="border-b border-white/5">
-                <td className="py-3 pr-4 text-slate-300">缺少可视化</td>
-                <td className="py-3 pr-4">"概念太抽象，做题就蒙"</td>
-                <td className="py-3">纯文字为主，缺少图示辅助</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-4 text-slate-300">无法举一反三</td>
-                <td className="py-3 pr-4">"AI 讲完就走了，换情境不会"</td>
-                <td className="py-3">无一款主动推送变式题</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4">
-          竞品综合评分：通义千问 4.68 &gt; 豆包 4.60 &gt; 腾讯元宝 4.28（满分 5
-          分）。三款产品各有优势，但在教育场景的「互动式引导」维度均有明显不足。
-        </p>
-      </Section>
-
-      {/* ── 关键决策 ── */}
-      <Section icon="🧠" title="关键决策">
-        <div className="space-y-4">
-          <Decision
-            title="决策一：苏格拉底式对话 vs 直接给答案"
-            problem="竞品分析发现所有 AI 都采用「一次性输出完整解答」模式，学生被动接收"
-            decision="采用强制分步反馈循环——每步讲解后必须确认理解才推进，不懂则降维重讲"
-            tradeoff="对话轮次增加（用户交互成本上升） vs 理解深度显著提升"
-            rationale="教育心理学研究表明，主动建构知识比被动接收效果好 3-5 倍"
-          />
-          <Decision
-            title="决策二：引入物理模型标注"
-            problem="学生反馈「看书能懂，一做题就蒙」——缺乏从文字到物理模型的抽象能力"
-            decision="AI 自动识别题目涉及的物理模型（如匀变速直线运动 + 牛顿第二定律），展示在侧边栏"
-            tradeoff="增加 AI 推理复杂度和 Prompt 成本 vs 帮助学生建立模型化思维"
-          />
-          <Decision
-            title="决策三：SM-2 间隔复习算法"
-            problem="一次理解 ≠ 长期掌握，学生容易「讲完就忘」"
-            decision="引入 SM-2 算法管理复习周期（12 小时 ~ 90 天），变式题自动存入错题本"
-            tradeoff="增加产品复杂度（需要本地数据持久化） vs 从根本上解决遗忘问题"
-            rationale="艾宾浩斯遗忘曲线 + SuperMemo 间隔重复理论的工程化应用"
-          />
-        </div>
-      </Section>
-
-      {/* ── 解决方案 ── */}
-      <Section icon="🚀" title="解决方案">
+        <p className="text-slate-300 font-medium">现有方案的问题：</p>
+        <ul className="list-disc list-inside mt-1 space-y-1 text-slate-400">
+          <li>缺少分步确认，无法判断学生是否真正理解</li>
+          <li>缺少变式验证，难以确认知识迁移能力</li>
+          <li>缺少长期复习机制，学习效果难沉淀</li>
+        </ul>
         <p className="text-slate-300 font-medium">
-          核心架构——「学习三部曲」模型：
+          结论：用户真正需要的不是“完整答案”，而是“可验证的理解过程”。
         </p>
-        <div className="grid sm:grid-cols-3 gap-4 mt-2 mb-6">
-          {[
-            {
-              step: "01",
-              name: "模型抽象",
-              desc: "将复杂题目转化为标准物理模型（如小球、匀加速、点电荷）",
-            },
-            {
-              step: "02",
-              name: "逻辑递进",
-              desc: "将长链路解题拆解为学生可消化的微小逻辑单元",
-            },
-            {
-              step: "03",
-              name: "闭环验证",
-              desc: "通过变式训练确认学生是否实现了真正的知识内化",
-            },
-          ].map((item) => (
-            <div
-              key={item.step}
-              className="rounded-lg border border-white/5 bg-white/[0.02] p-4"
-            >
-              <p className="text-xs font-mono text-accent/40 mb-2">
-                Step {item.step}
-              </p>
-              <p className="text-sm text-slate-200 font-medium mb-1">
-                {item.name}
-              </p>
-              <p className="text-xs text-slate-400">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-slate-300 font-medium mb-3">六大功能模块：</p>
-        <div className="grid sm:grid-cols-2 gap-3">
-          {[
-            {
-              name: "苏格拉底答疑",
-              desc: "多模态输入 + 分步讲解 + 双向反馈 + 情绪兜底",
-            },
-            {
-              name: "题库闯关",
-              desc: "8 大模块 30+ 题，支持拍照批改",
-            },
-            {
-              name: "每日练习",
-              desc: "SM-2 算法驱动的个性化复习",
-            },
-            {
-              name: "错题本",
-              desc: "汇总所有学习记录，支持多维筛选",
-            },
-            {
-              name: "知识技能树",
-              desc: "力导向图可视化 50+ 知识点及关联",
-            },
-            {
-              name: "灵活配置",
-              desc: "支持 DeepSeek、通义千问、Kimi 等多模型接入",
-            },
-          ].map((item) => (
-            <div key={item.name} className="flex gap-3 items-start">
-              <span className="text-accent/40 mt-0.5">▸</span>
-              <div>
-                <span className="text-sm text-slate-300">{item.name}</span>
-                <span className="text-sm text-slate-500"> — {item.desc}</span>
-              </div>
-            </div>
-          ))}
-        </div>
       </Section>
 
-      {/* ── 结果与反思 ── */}
-      <Section icon="📊" title="结果与反思">
-        <div className="space-y-4">
-          <div>
-            <p className="text-slate-300 font-medium mb-2">定性成果</p>
-            <ul className="list-disc list-inside space-y-1 text-slate-400">
-              <li>系统性竞品分析验证了产品方向的正确性</li>
-              <li>
-                建立了一套从「用户痛点 → 教育理论 → 产品功能」的映射方法论
-              </li>
-              <li>
-                技术栈选型（React + Vite + Tailwind）实现了快速迭代和高质量交付
-              </li>
-            </ul>
+      <Section icon="💡" title="Solution（解决方案）">
+        <p>产品围绕“过程可验证”设计了三项核心决策：</p>
+        <Decision
+          title="分步确认机制"
+          problem="完整输出看似高效，但学生容易被动接收"
+          decision="每次只讲一小步，必须确认理解后再推进"
+          tradeoff="交互轮次增加 vs 理解深度显著提升"
+        />
+        <Decision
+          title="变式训练闭环"
+          problem="单题理解不等于可迁移能力"
+          decision="在关键节点自动生成变式题进行验证"
+          tradeoff="训练成本增加 vs 迁移能力更可测"
+        />
+        <Decision
+          title="SM-2 间隔复习"
+          problem="短期理解容易遗忘"
+          decision="按掌握度动态安排复习周期（12小时~90天）"
+          tradeoff="系统复杂度上升 vs 长期掌握率提升"
+        />
+      </Section>
+
+      <Section icon="🧠" title="Key Design / System（核心设计）">
+        <p>系统采用“学习三部曲”闭环架构，确保每一步都有学习目标。</p>
+        <div className="space-y-3 mt-2">
+          <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+            <p className="text-sm text-slate-200 font-medium mb-1">模块 1：模型抽象</p>
+            <p className="text-xs text-slate-400">将题目文本转为标准物理模型，降低认知负担。</p>
           </div>
-          <div>
-            <p className="text-slate-300 font-medium mb-2">
-              如果重新来过，我会……
-            </p>
-            <ul className="list-disc list-inside space-y-1 text-slate-400">
-              <li>更早进行用户测试，用真实学生验证分步引导的颗粒度</li>
-              <li>引入更多可视化手段（动画模拟物理过程），降低抽象理解门槛</li>
-              <li>
-                探索社交学习功能（同伴互助、学习小组），利用社交动力提升留存
-              </li>
-            </ul>
+          <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+            <p className="text-sm text-slate-200 font-medium mb-1">模块 2：逻辑递进</p>
+            <p className="text-xs text-slate-400">把长推导链拆成可消化的微步骤，逐步构建因果关系。</p>
+          </div>
+          <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
+            <p className="text-sm text-slate-200 font-medium mb-1">模块 3：闭环验证</p>
+            <p className="text-xs text-slate-400">通过变式题和复习调度验证是否真正掌握。</p>
           </div>
         </div>
+        <p className="text-slate-300 font-medium">
+          核心是把“讲解”转化为“验证”，把“会看”转化为“会做”。
+        </p>
+      </Section>
+
+      <Section icon="✨" title="Key Features（核心功能）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>苏格拉底式分步讲解：每一步都可确认“懂了/没懂”</li>
+          <li>变式题自动生成：针对薄弱点即时强化</li>
+          <li>错题本与复习队列：记录问题来源与掌握进度</li>
+          <li>知识技能树可视化：展示知识点依赖与掌握状态</li>
+        </ul>
+      </Section>
+
+      <Section icon="🎯" title="Use Cases（使用场景）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>学生课后自学时，分步理解一道难题</li>
+          <li>考试前复盘错题，快速定位薄弱知识点</li>
+          <li>每日练习时按复习计划完成高效巩固</li>
+        </ul>
+      </Section>
+
+      <Section icon="🧠" title="Product Thinking（产品思考）">
+        <Decision
+          title="AI 应增强学习，而非替代学习"
+          problem="直接给答案会削弱学生主动思考"
+          decision="坚持“分步引导 + 微测试”机制"
+          tradeoff="短期速度降低 vs 长期学习能力提升"
+        />
+        <Decision
+          title="验证比讲解更重要"
+          problem="学生经常“听懂了”但做不出来"
+          decision="把“会做”作为产品评价标准，而非“讲清楚”"
+          tradeoff="需要更多交互设计 vs 学习效果更可信"
+        />
+      </Section>
+
+      <Section icon="🚀" title="Outcome（结果）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>完成端到端可用产品（题目输入、讲解、练习、复习、错题管理）</li>
+          <li>实现学习闭环：讲解→验证→复习→再验证</li>
+          <li>支持真实学习场景下的连续使用</li>
+        </ul>
+        <p className="text-slate-300 font-medium mt-3">若上线后重点关注指标：</p>
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>单步理解确认率</li>
+          <li>变式题正确率</li>
+          <li>7日复习完成率与掌握提升率</li>
+        </ul>
+      </Section>
+
+      <Section icon="🔄" title="Reflection（反思）">
+        <p>
+          我最大的收获是：教育类 AI 产品的核心竞争力不在“讲得多快”，而在“是否能证明用户真的学会了”。
+        </p>
+        <ul className="list-disc list-inside space-y-1 text-slate-400 mt-2">
+          <li>后续应更早引入真实学生测试，校准步骤粒度</li>
+          <li>在可视化演示方面仍有提升空间（物理过程动画化）</li>
+        </ul>
+      </Section>
+
+      <Section icon="📈" title="Next Steps（未来优化）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>加入个性化学习路径（按年级/基础自适应）</li>
+          <li>强化复习算法参数，提升不同类型题目的记忆命中率</li>
+          <li>引入学习报告，帮助家长/教师理解学习进展</li>
+        </ul>
       </Section>
     </CaseLayout>
   );
