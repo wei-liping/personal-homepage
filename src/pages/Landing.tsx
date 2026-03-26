@@ -11,12 +11,15 @@ export default function Landing() {
             韦莉萍
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-4">
-            产品经理 · 专注
-            <span className="text-accent"> AI 驱动的消费级产品</span>
+            AI 产品探索者 ·
+            <span className="text-accent"> 关注用户行为与认知结构</span>
           </p>
           <p className="text-sm text-slate-500 max-w-xl leading-relaxed">
-            用行为科学和技术的交叉视角，将复杂的用户问题拆解为可落地的产品方案。
-            擅长从 0 到 1 的产品定义，以及将学术理论转化为用户可感知的产品体验。
+            具备物理与教育背景的 AI 产品探索者，关注用户行为与认知结构。
+            <br />
+            围绕情绪陪伴、学习辅助与产品工具，设计并实现多个 AI 产品项目。
+            <br />
+            致力于用结构化思维，将复杂问题转化为可落地的产品方案。
           </p>
         </section>
 

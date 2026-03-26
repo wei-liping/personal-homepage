@@ -16,7 +16,7 @@ export default function Resume() {
         <div className="flex items-start justify-between mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-white">简历</h1>
           <a
-            href="/personal-home/resume.pdf"
+            href="/personal-homepage/resume.pdf"
             download
             className="inline-flex items-center gap-2 text-sm text-accent border border-accent/30 rounded-lg px-4 py-2 hover:bg-accent/10 transition-colors"
           >

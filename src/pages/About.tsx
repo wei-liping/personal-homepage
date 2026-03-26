@@ -18,14 +18,22 @@ export default function About() {
         </h1>
 
         <div className="space-y-6 text-sm text-slate-400 leading-relaxed">
-          <p>我是韦莉萍，一名专注于 AI 驱动消费级产品的产品经理。</p>
           <p>
-            我相信好的产品不是功能的堆砌，而是对用户真实问题的深刻理解。
-            我擅长从行为科学和技术的交叉视角出发，将复杂的用户需求拆解为可落地的产品方案。
+            我拥有物理学研究背景与一线教学经验，长期关注用户行为与认知过程。
+            在教学实践中，通过观察学生的学习与情绪表现，逐步建立起对“用户需求如何产生”的理解。
           </p>
           <p>
-            在过去的项目中，我独立完成了从用户调研、竞品分析、产品定义到原型开发的全流程。
-            这让我对产品的每一个环节都有切身体感——不只是画原型，更能理解技术实现的边界和成本。
+            基于这些真实场景，我开始探索 AI
+            产品设计，围绕情绪陪伴、学习辅助与产品工具方向，
+            独立完成多个项目的设计与实现。
+          </p>
+          <p>
+            在项目中，我更关注从用户问题出发，构建清晰的产品路径，而不仅仅是技术实现。
+            我习惯将复杂问题进行抽象与结构化拆解，并通过可复用的工作流进行表达与落地。
+          </p>
+          <p>
+            目前希望在产品经理岗位上，将用户洞察与 AI
+            能力结合，持续打磨可创造真实价值的产品。
           </p>
         </div>
 
@@ -108,8 +116,9 @@ export default function About() {
         {/* Philosophy */}
         <div className="mt-12 rounded-lg border border-accent/10 bg-accent/[0.03] p-6">
           <p className="text-sm text-slate-300 leading-relaxed">
-            <span className="text-accent font-medium">我的产品哲学：</span>
-            表达清晰，逻辑严谨，有产品判断。不追求功能的多寡，而追求每一个功能背后是否有清晰的用户价值和决策依据。
+            <span className="text-accent font-medium">产品逻辑：</span>
+            关注用户行为与真实需求 → 拆解问题结构 → 设计可执行方案 →
+            通过迭代不断优化产品体验。
           </p>
         </div>
       </div>
