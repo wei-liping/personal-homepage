@@ -62,7 +62,7 @@ export default function Resume() {
                   <h4 className="text-sm font-semibold text-slate-200">
                     悟理 AI —— 苏格拉底式物理 AI 私教
                   </h4>
-                  <span className="text-xs text-slate-500 font-mono">2025</span>
+                  <span className="text-xs text-slate-500 font-mono">2026</span>
                 </div>
                 <p className="text-sm text-slate-400 leading-relaxed mb-2">
                   独立完成用户调研、竞品分析（3 款 AI
@@ -88,7 +88,7 @@ export default function Resume() {
                   <h4 className="text-sm font-semibold text-slate-200">
                     EchoMate —— AI 社交对话决策工具
                   </h4>
-                  <span className="text-xs text-slate-500 font-mono">2025</span>
+                  <span className="text-xs text-slate-500 font-mono">2026</span>
                 </div>
                 <p className="text-sm text-slate-400 leading-relaxed mb-2">
                   独立完成心理学理论调研、产品架构设计、Prompt
