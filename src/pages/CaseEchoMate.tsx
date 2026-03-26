@@ -1,6 +1,6 @@
 import CaseLayout, { Section, Decision } from "../components/CaseLayout";
 
-export default function CaseChatDebug() {
+export default function CaseEchoMate() {
   return (
     <CaseLayout
       title="EchoMate — AI 对话辅助产品案例"

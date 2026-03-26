@@ -12,14 +12,14 @@ export default function Footer() {
             href="https://github.com/wei-liping"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-500 hover:text-accent transition-colors"
+            className="interactive-icon rounded-full p-1.5 text-slate-500 hover:text-accent hover:bg-white/[0.04]"
             aria-label="GitHub"
           >
             <Github size={18} />
           </a>
           <a
-            href="mailto:your-email@example.com"
-            className="text-slate-500 hover:text-accent transition-colors"
+            href="mailto:weilipng@zju.edu.cn"
+            className="interactive-icon rounded-full p-1.5 text-slate-500 hover:text-accent hover:bg-white/[0.04]"
             aria-label="Email"
           >
             <Mail size={18} />

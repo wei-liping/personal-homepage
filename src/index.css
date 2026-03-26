@@ -19,6 +19,54 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --ease-apple: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a,
+button {
+  transition-timing-function: var(--ease-apple);
+}
+
+:focus-visible {
+  outline: 2px solid rgba(94, 234, 212, 0.55);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.interactive-link {
+  transition:
+    color 220ms var(--ease-apple),
+    opacity 220ms var(--ease-apple),
+    transform 220ms var(--ease-apple);
+}
+
+.interactive-link:hover {
+  transform: translateY(-1px);
+}
+
+.interactive-card {
+  transition:
+    background-color 260ms var(--ease-apple),
+    border-color 260ms var(--ease-apple),
+    box-shadow 260ms var(--ease-apple),
+    transform 260ms var(--ease-apple);
+}
+
+.interactive-chip {
+  transition:
+    color 220ms var(--ease-apple),
+    background-color 220ms var(--ease-apple),
+    border-color 220ms var(--ease-apple);
+}
+
+.interactive-icon {
+  transition:
+    color 220ms var(--ease-apple),
+    background-color 220ms var(--ease-apple),
+    transform 220ms var(--ease-apple);
+}
+
 ::selection {
   background-color: #5eead433;
   color: #e2e8f0;
@@ -39,4 +87,15 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #475569;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

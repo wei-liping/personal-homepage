@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 
 export default function Landing() {
@@ -10,17 +11,31 @@ export default function Landing() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             韦莉萍
           </h1>
-          <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed mb-4">
+          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl leading-relaxed mb-4 font-medium">
             AI 产品探索者 ·
             <span className="text-accent"> 关注用户行为与认知结构</span>
           </p>
-          <p className="text-sm text-slate-500 max-w-xl leading-relaxed">
+          <p className="text-base text-slate-300 max-w-2xl leading-7">
             具备物理与教育背景的 AI 产品探索者，关注用户行为与认知结构。
             <br />
             围绕情绪陪伴、学习辅助与产品工具，设计并实现多个 AI 产品项目。
             <br />
             致力于用结构化思维，将复杂问题转化为可落地的产品方案。
           </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              to="/resume"
+              className="inline-flex items-center justify-center rounded-lg border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-accent hover:bg-accent/15 transition-colors"
+            >
+              查看简历
+            </Link>
+            <a
+              href="mailto:weilipng@zju.edu.cn"
+              className="inline-flex items-center justify-center rounded-lg border border-white/10 px-4 py-2 text-sm font-medium text-slate-200 hover:border-accent/30 hover:text-accent transition-colors"
+            >
+              联系我
+            </a>
+          </div>
         </section>
 
         {/* Projects */}

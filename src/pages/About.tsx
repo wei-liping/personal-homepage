@@ -17,7 +17,7 @@ export default function About() {
           关于我
         </h1>
 
-        <div className="space-y-6 text-sm text-slate-400 leading-relaxed">
+        <div className="space-y-6 text-base text-slate-300 leading-7">
           <p>
             我拥有物理学研究背景与一线教学经验，长期关注用户行为与认知过程。
             在教学实践中，通过观察学生的学习与情绪表现，逐步建立起对“用户需求如何产生”的理解。
@@ -115,7 +115,7 @@ export default function About() {
 
         {/* Philosophy */}
         <div className="mt-12 rounded-lg border border-accent/10 bg-accent/[0.03] p-6">
-          <p className="text-sm text-slate-300 leading-relaxed">
+          <p className="text-base text-slate-200 leading-7">
             <span className="text-accent font-medium">产品逻辑：</span>
             关注用户行为与真实需求 → 拆解问题结构 → 设计可执行方案 →
             通过迭代不断优化产品体验。

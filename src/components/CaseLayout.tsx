@@ -36,7 +36,7 @@ export default function CaseLayout({
         {/* Back */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-accent transition-colors mb-10"
+          className="interactive-link inline-flex items-center gap-2 text-sm text-slate-500 hover:text-accent mb-10"
         >
           <ArrowLeft size={14} />
           返回首页
@@ -45,7 +45,7 @@ export default function CaseLayout({
         {/* Header */}
         <header className="mb-12">
           <p className="text-sm font-mono text-accent/70 mb-3">{subtitle}</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold text-white mb-4 tracking-tight">
             {title}
           </h1>
           <div className="flex flex-wrap gap-2 mb-6">
@@ -60,13 +60,13 @@ export default function CaseLayout({
           </div>
 
           {/* Links */}
-          <div className="flex gap-4 mb-8">
+          <div className="flex gap-5 mb-8">
             {github && (
               <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-accent transition-colors"
+                className="interactive-link inline-flex items-center gap-2 text-sm text-slate-300 hover:text-accent"
               >
                 <Github size={15} /> 源代码
               </a>
@@ -76,7 +76,7 @@ export default function CaseLayout({
                 href={live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-accent transition-colors"
+                className="interactive-link inline-flex items-center gap-2 text-sm text-slate-300 hover:text-accent"
               >
                 <ExternalLink size={15} /> 在线体验
               </a>
@@ -86,7 +86,7 @@ export default function CaseLayout({
           {/* TL;DR */}
           <div className="rounded-lg border border-accent/10 bg-accent/[0.03] p-5">
             <p className="text-xs font-mono text-accent/50 mb-2">TL;DR</p>
-            <p className="text-sm text-slate-300 leading-relaxed">{tldr}</p>
+            <p className="text-base text-slate-200 leading-7">{tldr}</p>
           </div>
         </header>
 
@@ -98,7 +98,7 @@ export default function CaseLayout({
           {prev ? (
             <Link
               to={prev.to}
-              className="text-sm text-slate-500 hover:text-accent transition-colors"
+              className="interactive-link text-sm text-slate-500 hover:text-accent"
             >
               ← {prev.label}
             </Link>
@@ -108,7 +108,7 @@ export default function CaseLayout({
           {next ? (
             <Link
               to={next.to}
-              className="text-sm text-slate-500 hover:text-accent transition-colors"
+              className="interactive-link text-sm text-slate-500 hover:text-accent"
             >
               {next.label} →
             </Link>
@@ -130,11 +130,11 @@ interface SectionProps {
 export function Section({ icon, title, children }: SectionProps) {
   return (
     <section>
-      <h2 className="flex items-center gap-3 text-xl font-semibold text-white mb-6">
+      <h2 className="flex items-center gap-3 text-2xl md:text-[28px] font-semibold text-white mb-6 tracking-tight">
         <span className="text-lg">{icon}</span>
         {title}
       </h2>
-      <div className="text-sm text-slate-400 leading-relaxed space-y-4">
+      <div className="text-base text-slate-300 leading-7 space-y-4">
         {children}
       </div>
     </section>
@@ -157,8 +157,8 @@ export function Decision({
   rationale,
 }: DecisionProps) {
   return (
-    <div className="rounded-lg border border-white/5 bg-white/[0.02] p-5 space-y-3">
-      <h4 className="text-sm font-semibold text-slate-200">{title}</h4>
+    <div className="interactive-card rounded-lg border border-white/5 bg-white/[0.02] p-5 space-y-3 hover:border-accent/20 hover:bg-white/[0.03]">
+      <h4 className="text-base font-semibold text-slate-100">{title}</h4>
       <div className="space-y-2 text-sm">
         <p>
           <span className="text-accent/60 font-mono text-xs mr-2">问题</span>

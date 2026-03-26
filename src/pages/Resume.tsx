@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Download, FileText } from "lucide-react";
 
 export default function Resume() {
+  const resumePdfUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+
   return (
     <div className="pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-6">
@@ -16,7 +18,7 @@ export default function Resume() {
         <div className="flex items-start justify-between mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-white">简历</h1>
           <a
-            href="/personal-homepage/resume.pdf"
+            href={resumePdfUrl}
             download
             className="inline-flex items-center gap-2 text-sm text-accent border border-accent/30 rounded-lg px-4 py-2 hover:bg-accent/10 transition-colors"
           >
@@ -84,7 +86,7 @@ export default function Resume() {
               <div>
                 <div className="flex items-baseline justify-between mb-2">
                   <h4 className="text-sm font-semibold text-slate-200">
-                    聊天 Debug —— AI 社交对话分析工具
+                    EchoMate —— AI 社交对话决策工具
                   </h4>
                   <span className="text-xs text-slate-500 font-mono">2025</span>
                 </div>
@@ -142,10 +144,7 @@ export default function Resume() {
         <div className="mt-12 rounded-lg border border-white/5 bg-white/[0.02] p-5 flex items-start gap-3">
           <FileText size={18} className="text-slate-500 mt-0.5 shrink-0" />
           <p className="text-xs text-slate-500">
-            以上为简历摘要。如需完整简历，请点击右上角下载 PDF
-            版本，或通过邮件联系我获取。将 PDF 文件放置在{" "}
-            <code className="text-accent/50 font-mono">public/resume.pdf</code>{" "}
-            即可启用下载功能。
+            以上为简历摘要。如需完整简历，请点击右上角下载 PDF 版本。
           </p>
         </div>
       </div>

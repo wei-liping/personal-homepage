@@ -20,10 +20,10 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const content = (
     <div
-      className={`group relative rounded-xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 ${
+      className={`group interactive-card relative rounded-xl border border-white/5 bg-white/[0.02] p-6 ${
         comingSoon
           ? "opacity-50 cursor-default"
-          : "hover:bg-white/[0.05] hover:border-accent/20 hover:-translate-y-1"
+          : "hover:bg-white/[0.045] hover:border-accent/25 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
       }`}
     >
       {comingSoon && (
@@ -32,8 +32,8 @@ export default function ProjectCard({
         </span>
       )}
 
-      <p className="text-xs font-mono text-accent/70 mb-2">{subtitle}</p>
-      <h3 className="text-lg font-semibold text-slate-100 mb-3 flex items-center gap-2">
+      <p className="text-sm font-mono text-accent/70 mb-2">{subtitle}</p>
+      <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2 tracking-tight">
         {title}
         {!comingSoon && (
           <ArrowUpRight
@@ -42,14 +42,12 @@ export default function ProjectCard({
           />
         )}
       </h3>
-      <p className="text-sm text-slate-400 leading-relaxed mb-4">
-        {description}
-      </p>
+      <p className="text-base text-slate-300 leading-7 mb-4">{description}</p>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="text-xs font-mono text-accent/60 bg-accent/5 rounded-full px-3 py-1"
+            className="interactive-chip text-xs font-mono text-accent/60 bg-accent/5 rounded-full px-3 py-1 hover:bg-accent/10"
           >
             {tag}
           </span>
@@ -59,5 +57,12 @@ export default function ProjectCard({
   );
 
   if (comingSoon || !to) return content;
-  return <Link to={to}>{content}</Link>;
+  return (
+    <Link
+      to={to}
+      className="block rounded-xl focus-visible:outline-accent/60 focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      {content}
+    </Link>
+  );
 }

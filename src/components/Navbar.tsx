@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           to="/"
-          className="font-mono text-sm font-medium text-accent hover:text-white transition-colors"
+          className="interactive-link font-mono text-base font-semibold text-accent hover:text-white"
         >
           韦莉萍.pm
         </Link>
@@ -28,7 +28,7 @@ export default function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className={`text-sm transition-colors ${
+              className={`interactive-link text-base ${
                 pathname === l.to
                   ? "text-accent"
                   : "text-slate-400 hover:text-slate-200"
@@ -41,7 +41,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-slate-400 hover:text-white transition-colors"
+          className="interactive-icon md:hidden text-slate-400 hover:text-white"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -58,7 +58,7 @@ export default function Navbar() {
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className={`text-sm transition-colors ${
+                className={`interactive-link text-base ${
                   pathname === l.to
                     ? "text-accent"
                     : "text-slate-400 hover:text-slate-200"
