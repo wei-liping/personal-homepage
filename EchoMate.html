@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>EchoMate App Prototype - 高频聊天决策助手</title>
+    <style>
+        :root {
+            /* iOS 17/18 Pro System Colors */
+            --bg-system: #F2F2F7;
+            --bg-secondary: #FFFFFF;
+            --accent-blue: #007AFF;
+            --accent-green: #34C759;
+            --accent-orange: #FF9500;
+            --text-primary: #000000;
+            --text-secondary: #8E8E93;
+            --text-tertiary: #C7C7CC;
+            --border-light: rgba(0, 0, 0, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --input-bg: rgba(200, 200, 200, 0.15);
+            
+            --radius-bubble: 18px;
+            --radius-capsule: 22px;
+            --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-popover: 0 10px 40px rgba(0, 0, 0, 0.12);
+
+            /* Psychology Color Scale */
+            --gradient-anxiety: linear-gradient(90deg, #34C759 0%, #FFCC00 50%, #FF3B30 100%);
+            --gradient-momentum: linear-gradient(90deg, #8E8E93 0%, #5AC8FA 50%, #AF52DE 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #E5E5EA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-primary);
+        }
+
+        /* iPhone Container */
+        .device-container {
+            width: 390px;
+            height: 844px;
+            background-color: var(--bg-system);
+            border-radius: 54px;
+            border: 11px solid #1c1c1e;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Nav Bar */
+        .nav-bar {
+            height: 94px;
+            padding: 44px 16px 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 0.5px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 60px;
+            height: 30px;
+            color: var(--accent-blue);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Search Icon Button */
+        .search-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            color: var(--accent-blue);
+            cursor: pointer;
+        }
+
+        /* Search Modal */
+        .search-modal {
+            position: absolute;
+            top: 94px;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border-bottom: 0.5px solid var(--border-light);
+            padding: 8px 16px;
+            z-index: 95;
+            display: none;
+        }
+        .search-modal.show { display: flex; align-items: center; gap: 8px; }
+
+        .search-modal-input {
+            flex: 1;
+            background: #E5E5EA;
+            border: none;
+            border-radius: 8px;
+            height: 36px;
+            padding: 0 12px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-close-btn {
+            font-size: 14px;
+            color: var(--accent-blue);
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+
+        .nav-title {
+            font-size: 17px;
+            font-weight: 700;
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Back Button */
+        .back-btn { display: none; align-items: center; gap: 4px; font-size: 16px; color: var(--accent-blue); cursor: pointer; }
+        .back-btn.show { display: flex; }
+
+        /* Multi-Tab Architecture */
+        .tab-content {
+            flex: 1;
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        .tab-content.active { display: flex; }
+        .tab-content::-webkit-scrollbar { display: none; }
+
+        /* Chat List Styles */
+        .chat-list-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 16px 16px;
+        }
+        .chat-list-container::-webkit-scrollbar { display: none; }
+
+        .prototype-intro-card {
+            margin: 14px 0 12px;
+            padding: 14px 16px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(0,122,255,0.10) 0%, rgba(90,200,250,0.12) 100%);
+            border: 1px solid rgba(0,122,255,0.08);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .prototype-intro-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(0,122,255,0.12);
+            color: var(--accent-blue);
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .prototype-intro-title {
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 6px;
+        }
+
+        .prototype-intro-desc {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        .secondary-note {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--text-tertiary);
+            margin-top: 10px;
+        }
+
+        .chat-list-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 0.5px solid var(--border-light);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .chat-list-item:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+            margin: 0 -16px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        .chat-list-item:active {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-list-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .chat-list-content {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        .chat-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .chat-list-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .chat-list-time {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .chat-list-message {
+            font-size: 14px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chat-list-unread {
+            min-width: 20px;
+            height: 20px;
+            background-color: #FF3B30;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            padding: 0 6px;
+            flex-shrink: 0;
+        }
+        .chat-list-unread.hidden {
+            visibility: hidden;
+        }
+
+        /* Status Pill */
+        .status-pill-container {
+            position: absolute;
+            top: 105px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 90;
+        }
+
+        .status-pill {
+            background: var(--bg-secondary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-subtle);
+            border: 0.5px solid rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-orange);
+            box-shadow: 0 0 6px var(--accent-orange);
+        }
+
+        .status-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* Chat Flow */
+        .chat-scroll {
+            padding: 60px 16px 20px;
+            gap: 12px;
+        }
+
+        .bubble {
+            max-width: 80%;
+            padding: 10px 16px;
+            font-size: 16px;
+            line-height: 1.45;
+        }
+
+        .bubble-left {
+            align-self: flex-start;
+            background-color: #E9E9EB;
+            color: black;
+            border-radius: 20px 20px 20px 4px;
+        }
+
+        .bubble-right {
+            align-self: flex-end;
+            background-color: var(--accent-blue);
+            color: white;
+            border-radius: 20px 20px 4px 20px;
+        }
+
+        /* Explore Tab */
+        .explore-scroll { padding: 20px 16px 90px; gap: 16px; }
+        .post-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+        .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .avatar { width: 36px; height: 36px; border-radius: 50%; }
+        .post-name { font-size: 15px; font-weight: 600; }
+        .post-text { font-size: 15px; line-height: 1.5; margin-bottom: 12px; color: var(--text-primary); }
+        .ai-comment-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #F2F2F7;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            cursor: pointer;
+            border: 0.5px solid var(--border-light);
+        }
+
+        /* Insight Tab */
+        .insight-scroll { padding: 20px 16px 90px; }
+        .radar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        .radar-svg {
+            width: 260px;
+            height: 260px;
+            overflow: visible;
+        }
+        .radar-bg-poly { fill: rgba(0, 122, 255, 0.03); stroke: var(--text-tertiary); stroke-width: 0.5; }
+        .radar-axis { stroke: var(--text-tertiary); stroke-width: 0.5; stroke-dasharray: 2,2; }
+        .radar-data-poly { fill: rgba(52, 199, 89, 0.35); stroke: var(--accent-green); stroke-width: 2; stroke-linejoin: round; }
+        .radar-label { font-size: 11px; font-weight: 600; fill: var(--text-secondary); }
+
+        /* Profile Tab */
+        .profile-scroll { padding: 20px 16px 90px; }
+        .profile-header { display: flex; align-items: center; gap: 16px; padding: 10px 0 24px; }
+        .profile-avatar { width: 64px; height: 64px; background: var(--accent-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 700; }
+        .profile-info { flex: 1; }
+        .profile-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+        .profile-bio { font-size: 14px; color: var(--text-secondary); }
+
+        .setting-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--shadow-subtle);
+            margin-bottom: 16px;
+        }
+        .setting-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+        
+        .segmented-control {
+            display: flex; background: #E5E5EA; padding: 2px; border-radius: 8px;
+        }
+        .segment {
+            flex: 1; text-align: center; padding: 6px 0; font-size: 13px; font-weight: 600; color: var(--text-primary);
+            border-radius: 6px; cursor: pointer; transition: background 0.2s;
+        }
+        .segment.active { background: var(--bg-secondary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+        /* Bottom Control Stack */
+        .bottom-stack {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-secondary);
+            z-index: 110;
+            position: relative;
+            padding-bottom: 8px;
+            border-top: 0.5px solid var(--border-light);
+        }
+
+        /* Tactic Popover Menu */
+        .tactic-popover {
+            position: absolute;
+            bottom: 115px;
+            left: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 14px;
+            padding: 14px 16px;
+            box-shadow: var(--shadow-popover);
+            border: 0.5px solid rgba(0,0,0,0.1);
+            z-index: 500;
+            opacity: 0;
+            transform: translateY(10px) scale(0.95);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tactic-popover.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .tactic-header {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .tactic-content {
+            font-size: 14px;
+            line-height: 1.45;
+            color: var(--text-primary);
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .tactic-arrow {
+            position: absolute;
+            bottom: -6px;
+            left: 30px;
+            width: 12px;
+            height: 12px;
+            background: white;
+            transform: rotate(45deg);
+            border-right: 0.5px solid rgba(0,0,0,0.1);
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+        }
+
+        /* Ice-Breaker Tray */
+        .ice-breaker-tray {
+            padding: 12px 0 8px;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            gap: 10px;
+            padding-left: 16px;
+        }
+        .ice-breaker-tray::-webkit-scrollbar { display: none; }
+
+        .pill-btn {
+            background: #F2F2F7;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            cursor: pointer;
+            border: 0.5px solid var(--border-light);
+        }
+
+        /* Input Area */
+        .input-bar {
+            height: 54px;
+            padding: 0 12px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .input-field {
+            flex: 1;
+            background: var(--input-bg);
+            border: none;
+            height: 40px;
+            border-radius: 20px;
+            padding: 0 16px;
+            font-size: 16px;
+            outline: none;
+            color: var(--text-primary);
+        }
+
+        .send-btn {
+            width: 32px;
+            height: 32px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Tab Bar */
+        .footer-tabs {
+            height: 83px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            border-top: 0.5px solid var(--border-light);
+            display: flex;
+            justify-content: space-around;
+            padding-top: 10px;
+            padding-bottom: 25px;
+            z-index: 300;
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-secondary);
+            gap: 4px;
+            cursor: pointer;
+        }
+        .tab-item.active { color: var(--accent-blue); }
+
+        /* Bottom Sheet */
+        .sheet-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        .sheet-overlay.active { opacity: 1; visibility: visible; }
+
+        .bottom-sheet {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: var(--bg-system);
+            border-radius: 24px 24px 0 0;
+            padding: 16px 20px 40px;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .sheet-overlay.active .bottom-sheet { transform: translateY(0); }
+
+        .sheet-handle { width: 36px; height: 5px; background: #D1D1D6; border-radius: 3px; margin: 0 auto 16px; }
+
+        .analysis-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .stat-row { margin-bottom: 16px; }
+        .stat-header { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; color: var(--text-secondary); }
+        .stat-val { font-weight: 700; color: var(--text-primary); }
+
+        /* Psychology Color Scales */
+        .bar-bg {
+            position: relative;
+            height: 8px;
+            background: #E5E5EA;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        /* Anxiety Bar - Thermal Color */
+        .anxiety-gradient-bg { background: var(--gradient-anxiety); opacity: 0.2; position: absolute; inset: 0; }
+        .anxiety-fill {
+            height: 100%;
+            background: #34C759; /* Dynamic color from JS */
+            width: 0;
+            transition: all 1s;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Momentum Bi-directional Bar - Logic Color */
+        .momentum-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-secondary); /* Balanced color */
+            padding: 4px 2px 0;
+        }
+        .momentum-mid {
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 12px;
+            background: #FFFFFF;
+            box-shadow: 0 0 2px rgba(0,0,0,0.2);
+            z-index: 5;
+            top: -2px;
+        }
+        .momentum-fill {
+            position: absolute;
+            height: 100%;
+            background: var(--accent-blue);
+            border-radius: 4px;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            left: 50%;
+            width: 0;
+            z-index: 3;
+        }
+        .momentum-axis-bg {
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-momentum);
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body>
+
+<div class="device-container">
+    <!-- Nav Bar -->
+    <div class="nav-bar">
+        <div class="nav-btn">
+            <!-- Back Button -->
+            <div class="back-btn" id="backBtn" onclick="backToChatList()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <span style="font-size: 16px; margin-left: -4px;">返回</span>
+            </div>
+        </div>
+        <div class="nav-title" id="navTitle">消息</div>
+        <div class="nav-btn" id="searchBtn" onclick="toggleSearchModal()">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <input type="text" class="search-modal-input" id="searchInput" placeholder="搜索聊天对象..." oninput="filterChatList()">
+        <span class="search-close-btn" onclick="toggleSearchModal()">取消</span>
+    </div>
+
+    <!-- Status Pill (Chat Only) -->
+    <div class="status-pill-container page-chat-floating">
+        <div class="status-pill" onclick="toggleSheet(true)">
+            <div class="status-dot" id="statusDot"></div>
+            <span class="status-text" id="statusText">正在感知氛围...</span>
+        </div>
+    </div>
+
+    <!-- Tab 0: Chat List -->
+    <div class="tab-content active" id="tab-chat-list">
+        <div class="chat-list-container" id="chatListContainer">
+            <div class="prototype-intro-card">
+                <div class="prototype-intro-badge">App 方向探索</div>
+                <div class="prototype-intro-title">在手机上更快判断“现在该怎么回”</div>
+                <div class="prototype-intro-desc">
+                    EchoMate 的移动端形态聚焦高频聊天场景：直接在对话里感知氛围、生成提示、预填回复，帮助用户在最短路径内完成判断与表达。
+                </div>
+                <div class="secondary-note">主价值在消息页完成，洞察与偏好页只作为辅助说明，不再强调泛社交平台能力。</div>
+            </div>
+            <!-- Chat list items will be rendered here -->
+        </div>
+    </div>
+
+    <!-- Tab 0-1: Chat Flow (Single Chat) -->
+    <div class="chat-scroll tab-content" id="tab-chat">
+        <div class="bubble bubble-left">嗯嗯，好的。</div>
+    </div>
+
+    <!-- Tab 1: Explore (secondary) -->
+    <div class="tab-content explore-scroll" id="tab-explore">
+        <div class="prototype-intro-card" style="margin: 16px;">
+            <div class="prototype-intro-badge">次级模块</div>
+            <div class="prototype-intro-title" style="font-size: 16px;">话题灵感只做补充，不替代即时判断</div>
+            <div class="prototype-intro-desc">
+                这里保留轻量的话题灵感，用于补充破冰或评论场景；EchoMate 的核心价值仍在单聊中的实时状态判断与回复建议。
+            </div>
+        </div>
+        <div class="post-card">
+            <div class="post-header">
+                <div class="avatar" style="background: var(--accent-orange);"></div>
+                <div class="post-name">物理迷小王</div>
+            </div>
+            <div class="post-text">昨天看了诺兰的《奥本海默》，对量子力学的表现手法真的太震撼了！有人也看了吗？</div>
+            <div class="ai-comment-btn" onclick="usePresetComment('🎬 热门影剧')">
+                ✨ AI 评论推荐
+            </div>
+        </div>
+        <div class="post-card">
+            <div class="post-header">
+                <div class="avatar" style="background: var(--accent-green);"></div>
+                <div class="post-name">周末探店</div>
+            </div>
+            <div class="post-text">新发现一家藏在深巷里的手冲咖啡，豆子风味绝佳，老板还是个重度猫奴🐈</div>
+            <div class="ai-comment-btn" onclick="usePresetComment('☕️ 周末去处')">
+                ✨ AI 评论推荐
+            </div>
+        </div>
+        <div class="post-card">
+            <div class="post-header">
+                <div class="avatar" style="background: var(--accent-blue);"></div>
+                <div class="post-name">深夜听歌人</div>
+            </div>
+            <div class="post-text">最近迷上了那种慵懒的独立音乐，有没有什么适合深夜一个人循环的宝藏歌单推荐？</div>
+            <div class="ai-comment-btn" onclick="usePresetComment('🎵 音乐偏好')">
+                ✨ AI 评论推荐
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 2: Insight -->
+    <div class="tab-content insight-scroll" id="tab-insight">
+        <div class="prototype-intro-card" style="margin: 16px 16px 8px;">
+            <div class="prototype-intro-badge">辅助说明</div>
+            <div class="prototype-intro-title" style="font-size: 16px;">把“为什么这样建议”讲清楚</div>
+            <div class="prototype-intro-desc">
+                洞察页用于帮助用户理解系统如何判断当前对话状态，不与消息页争夺主入口。
+            </div>
+        </div>
+        <div class="analysis-section">
+            <div class="section-title">🧭 社交人格雷达</div>
+            <div class="radar-container">
+                <svg class="radar-svg" viewBox="0 0 260 260">
+                    <!-- BG Levels -->
+                    <polygon class="radar-bg-poly" points="130,30 225,99 189,211 71,211 35,99" />
+                    <polygon class="radar-bg-poly" points="130,50 206,105 177,195 83,195 54,105" />
+                    <polygon class="radar-bg-poly" points="130,70 187,112 165,178 95,178 73,112" />
+                    <polygon class="radar-bg-poly" points="130,90 168,118 153,161 107,161 92,118" />
+                    
+                    <!-- Axis -->
+                    <line class="radar-axis" x1="130" y1="130" x2="130" y2="30" />
+                    <line class="radar-axis" x1="130" y1="130" x2="225" y2="99" />
+                    <line class="radar-axis" x1="130" y1="130" x2="189" y2="211" />
+                    <line class="radar-axis" x1="130" y1="130" x2="71" y2="211" />
+                    <line class="radar-axis" x1="130" y1="130" x2="35" y2="99" />
+                    
+                    <!-- Data -->
+                    <polygon class="radar-data-poly" points="130,50 220,101 168,183 80,199 63,108" />
+                    
+                    <!-- Labels -->
+                    <text class="radar-label" x="130" y="20" text-anchor="middle">主动性</text>
+                    <text class="radar-label" x="235" y="95" text-anchor="start">共情力</text>
+                    <text class="radar-label" x="200" y="225" text-anchor="start">稳定性</text>
+                    <text class="radar-label" x="60" y="225" text-anchor="end">颗粒度</text>
+                    <text class="radar-label" x="25" y="95" text-anchor="end">边界感</text>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="analysis-section">
+            <div class="section-title">📊 互动评估维度</div>
+            <div class="stat-row">
+                <div class="stat-header"><span>自我暴露水平</span><span class="stat-val">较高</span></div>
+                <div class="bar-bg"><div class="anxiety-fill" style="width: 75%; background-color: var(--accent-blue);"></div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header"><span>互动对等性</span><span class="stat-val">极佳</span></div>
+                <div class="bar-bg"><div class="anxiety-fill" style="width: 90%; background-color: var(--accent-green);"></div></div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-header"><span>安全依恋指数</span><span class="stat-val">稳定</span></div>
+                <div class="bar-bg"><div class="anxiety-fill" style="width: 85%; background-color: #AF52DE;"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab 3: Profile -->
+    <div class="tab-content profile-scroll" id="tab-profile">
+        <div class="prototype-intro-card" style="margin: 16px;">
+            <div class="prototype-intro-badge">偏好设置</div>
+            <div class="prototype-intro-title" style="font-size: 16px;">让建议更像你，而不是替你说话</div>
+            <div class="prototype-intro-desc">
+                移动端保留轻量偏好设置，只服务于消息页里的建议生成，不扩展成完整社交主页。
+            </div>
+        </div>
+        <div class="profile-header">
+            <div class="profile-avatar">U</div>
+            <div class="profile-info">
+                <div class="profile-name">User 001</div>
+                <div class="profile-bio">记录每一次社交脉络</div>
+            </div>
+        </div>
+        
+        <div class="setting-card">
+            <div class="setting-title">🤖 AI 辅助语气调教</div>
+            <div class="segmented-control">
+                <div class="segment active" onclick="setTone(this, '幽默风趣，善于用轻松的话题破冰。')">幽默</div>
+                <div class="segment" onclick="setTone(this, '理智冷静，话语简洁直击核心。')">高冷</div>
+                <div class="segment" onclick="setTone(this, '充满共情，懂得倾听并给予情感支持。')">温柔</div>
+            </div>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 12px; line-height: 1.4;">
+                当前语气：<strong id="toneDesc">幽默风趣，善于用轻松的话题破冰。</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Bottom Stack (Chat Only) -->
+    <div class="bottom-stack page-chat-floating" id="bottomStack">
+        
+        <!-- AI聊天建议 Popover -->
+        <div class="tactic-popover" id="tacticPopover">
+            <div class="tactic-header">✨ AI 聊天建议（点击预填）</div>
+            <div class="tactic-content" id="tacticContent" onclick="prefillInput()">
+                <!-- Content -->
+            </div>
+            <div class="tactic-arrow" id="tacticArrow"></div>
+        </div>
+
+        <!-- Ice Breaker Tray -->
+        <div class="ice-breaker-tray" id="pillTray">
+            <div class="pill-btn" onclick="openPreview('🎬 热门影剧', this)">🎬 热门影剧</div>
+            <div class="pill-btn" onclick="openPreview('☕️ 周末去处', this)">☕️ 周末去处</div>
+            <div class="pill-btn" onclick="openPreview('✨ 性格互补', this)">✨ 性格互补</div>
+            <div class="pill-btn" onclick="openPreview('🎵 音乐偏好', this)">🎵 音乐偏好</div>
+            <div class="pill-btn" onclick="openPreview('🍱 隐藏美食', this)">🍱 隐藏美食</div>
+        </div>
+
+        <!-- Input Bar -->
+        <div class="input-bar">
+            <input type="text" class="input-field" id="chatInput" placeholder="手动输入或选择建议..." autocomplete="off">
+            <div class="send-btn" onclick="handleSend()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Tabs -->
+    <div class="footer-tabs">
+        <div class="tab-item active" onclick="switchTab(0)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span style="font-size: 10px; font-weight: 600;">消息</span>
+        </div>
+        <div class="tab-item" onclick="switchTab(1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <span style="font-size: 10px; font-weight: 600;">灵感</span>
+        </div>
+        <div class="tab-item" onclick="switchTab(2)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span style="font-size: 10px; font-weight: 600;">判断</span>
+        </div>
+        <div class="tab-item" onclick="switchTab(3)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span style="font-size: 10px; font-weight: 600;">偏好</span>
+        </div>
+    </div>
+
+    <!-- Bottom Sheet -->
+    <div class="sheet-overlay" id="sheetOverlay" onclick="toggleSheet(false)">
+        <div class="bottom-sheet" onclick="event.stopPropagation()">
+            <div class="sheet-handle"></div>
+            <h2 style="font-size: 20px; font-weight: 800; margin-bottom: 24px; text-align: center;">氛围感知报告</h2>
+
+            <!-- Relationship Stage -->
+            <div class="analysis-section">
+                <div class="section-title">💞 当前关系阶段</div>
+                <div style="font-size: 17px; font-weight: 700; color: var(--accent-blue);" id="stageVal">开场破冰期</div>
+                <p style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">基于互动频率与情感联结深度判定</p>
+            </div>
+
+            <!-- Core Metrics -->
+            <div class="analysis-section">
+                <div class="section-title">📊 核心指标</div>
+                
+                <!-- Anxiety -->
+                <div class="stat-row">
+                    <div class="stat-header"><span>焦虑水平评估</span><span class="stat-val" id="anxietyVal">6/10</span></div>
+                    <div class="bar-bg">
+                        <div class="anxiety-gradient-bg"></div>
+                        <div class="anxiety-fill" id="anxietyBar" style="width: 60%; background-color: #FFCC00;"></div>
+                    </div>
+                </div>
+
+                <!-- Momentum -->
+                <div class="stat-row">
+                    <div class="stat-header"><span>对话动量 (Momentum)</span><span class="stat-val" id="momValText">较弱</span></div>
+                    <div class="bar-bg">
+                        <div class="momentum-axis-bg"></div>
+                        <div class="momentum-mid"></div>
+                        <div class="momentum-fill" id="momBar"></div>
+                    </div>
+                    <div class="momentum-labels">
+                        <span style="color: #8E8E93;">负向 (阻力)</span>
+                        <span style="color: #AF52DE;">正向 (动力)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attribution -->
+            <div class="analysis-section">
+                <div class="section-title">💡 归因分析</div>
+                <p style="font-size: 14px; line-height: 1.6; color: var(--text-primary);" id="attributionText">
+                    对方回复带有明显的阻力色彩。根据归因训练，建议将其视为对方目前的“情境压力”过大，而非对你个人感兴趣程度的真实反映。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const els = {
+        chat: document.getElementById('tab-chat'),
+        chatListContainer: document.getElementById('chatListContainer'),
+        input: document.getElementById('chatInput'),
+        popover: document.getElementById('tacticPopover'),
+        popoverContent: document.getElementById('tacticContent'),
+        popoverArrow: document.getElementById('tacticArrow'),
+        statusText: document.getElementById('statusText'),
+        statusDot: document.getElementById('statusDot'),
+        overlay: document.getElementById('sheetOverlay'),
+        anxietyBar: document.getElementById('anxietyBar'),
+        anxietyVal: document.getElementById('anxietyVal'),
+        momBar: document.getElementById('momBar'),
+        momValText: document.getElementById('momValText'),
+        stageVal: document.getElementById('stageVal'),
+        attrText: document.getElementById('attributionText'),
+        stack: document.getElementById('bottomStack'),
+        navTitle: document.getElementById('navTitle'),
+        backBtn: document.getElementById('backBtn'),
+        searchBtn: document.getElementById('searchBtn'),
+        searchModal: document.getElementById('searchModal'),
+        searchInput: document.getElementById('searchInput')
+    };
+
+    // Chat Contacts Data - 10 个聊天对象
+    const chatContacts = [
+        { id: 'alice', name: 'Alice', avatar: 'A', lastMessage: '嗯嗯，好的。', time: '10:30', unread: 2, color: '#007AFF' },
+        { id: 'bob', name: 'Bob 物理迷', avatar: 'B', lastMessage: '昨天看了诺兰的《奥本海默》，太震撼了！', time: '09:15', unread: 0, color: '#34C759' },
+        { id: 'cindy', name: 'Cindy 探店达人', avatar: 'C', lastMessage: '新发现一家手冲咖啡，豆子风味绝佳☕️', time: '昨天', unread: 1, color: '#FF9500' },
+        { id: 'david', name: 'David 音乐人', avatar: 'D', lastMessage: '最近迷上了慵懒的独立音乐🎵', time: '昨天', unread: 0, color: '#AF52DE' },
+        { id: 'emma', name: 'Emma 吃货', avatar: 'E', lastMessage: '发现一家超正宗的私藏小酒馆🍱', time: '周一', unread: 3, color: '#FF2D55' },
+        { id: 'frank', name: 'Frank 健身教练', avatar: 'F', lastMessage: '明天早上健身房见！', time: '周日', unread: 0, color: '#5856D6' },
+        { id: 'grace', name: 'Grace 设计师', avatar: 'G', lastMessage: '这个配色方案你觉得怎么样？', time: '3/10', unread: 0, color: '#FF6B8B' },
+        { id: 'henry', name: 'Henry 产品经理', avatar: 'H', lastMessage: '需求文档我发你邮箱了', time: '3/9', unread: 5, color: '#00C7BE' },
+        { id: 'iris', name: 'Iris 摄影师', avatar: 'I', lastMessage: '周末有个摄影展，一起去看吗？📷', time: '3/8', unread: 0, color: '#FF8C00' },
+        { id: 'jack', name: 'Jack 创业者', avatar: 'J', lastMessage: '下周的路演来吗？', time: '3/5', unread: 0, color: '#8E8E93' }
+    ];
+
+    // Current chat state
+    let currentContactId = null;
+    let currentTactic = '';
+    let isChatListView = true; // true = list view, false = single chat view
+
+    // Per-contact TACTICS and Ice Breaker pills
+    const CONTACT_TACTICS = {
+        alice: {
+            pills: ['🎬 热门影剧', '☕️ 周末去处', '✨ 性格互补', '🎵 音乐偏好', '🍱 隐藏美食'],
+            tactics: {
+                '🎬 热门影剧': '最近看你朋友圈发了那部新剧的截图，我也刚刷完！那个结局真的太意难平了，你觉得导演最后那个反转合理吗？',
+                '☕️ 周末去处': 'Alice，看你资料里提到喜欢咖啡，这周末我打算去打卡藏在巷子里的那家手冲店，听说他们豆子很有特色，你之前去过吗？',
+                '✨ 性格互补': '刚发现我是 INFP，看到你是 ENTJ，感觉我们这种"社恐"和"社牛"还挺互补的，你平时也是那种风风火火的行动派吗？',
+                '🎵 音乐偏好': '刚才随机听到一首歌，感觉旋律很像你分享过的那位独立音乐人的风格。你最近有发现什么适合深夜听的宝藏歌单吗？',
+                '🍱 隐藏美食': '发现了一家超正宗的私藏小酒馆，他们的招牌鹅肝拌饭简直绝了。看你也是个资深吃货，下次有机会一定要去尝试一下！'
+            }
+        },
+        bob: {
+            pills: ['⚛️ 量子力学', '🎬 科幻电影', '📚 物理书籍', '🔭 天文观测'],
+            tactics: {
+                '⚛️ 量子力学': 'Bob，你之前说喜欢量子力学，我最近看了费曼的讲义，有个思想实验一直没太懂，能请教你吗？',
+                '🎬 科幻电影': '《奥本海默》我也看了！你对片中那个量子隧穿的场景怎么看？觉得科学上严谨吗？',
+                '📚 物理书籍': '最近想系统学学量子力学入门，你有什么推荐的书单吗？最好是通俗易懂的那种～',
+                '🔭 天文观测': '听说这周末有流星雨，你打算去观测吗？我知道一个不错的观星地点！'
+            }
+        },
+        cindy: {
+            pills: ['☕️ 咖啡探店', '🍰 甜品推荐', '📸 打卡圣地', '🐱 猫咪咖啡'],
+            tactics: {
+                '☕️ 咖啡探店': 'Cindy，看你分享的那家咖啡店好棒！具体位置在哪里呀？这周末想去打卡～',
+                '🍰 甜品推荐': '你上次说的那家提拉米苏，我昨天去吃了！真的绝了，还有其他推荐吗？',
+                '📸 打卡圣地': '最近想找几个适合拍照的地方，你平时都去哪里探店拍照呀？',
+                '🐱 猫咪咖啡': '听说新开了一家猫咪咖啡馆，老板也是猫奴，你去了吗？'
+            }
+        },
+        david: {
+            pills: ['🎵 音乐推荐', '🎸 独立音乐', '🎧 深夜歌单', '🎹 乐器学习'],
+            tactics: {
+                '🎵 音乐推荐': 'David，你上次分享的那首独立音乐我循环了好几天，太有感觉了！还有类似的推荐吗？',
+                '🎸 独立音乐': '最近发现了一个小众的独立乐队，感觉你会喜欢，晚点分享给你听听～',
+                '🎧 深夜歌单': '失眠了…你有那种适合深夜一个人听的歌单吗？求分享！',
+                '🎹 乐器学习': '我一直想学吉他，看你好像会乐器？有什么入门建议吗？'
+            }
+        },
+        emma: {
+            pills: ['🍱 美食探店', '🍶 小酒馆', '🥘 私房菜', '🍳 厨艺交流'],
+            tactics: {
+                '🍱 美食探店': 'Emma，你说的那家小酒馆我记了好久！终于有空去了，具体在哪个位置呀？',
+                '🍶 小酒馆': '上周去了你推荐的那家店，鹅肝拌饭真的绝了！还有其他招牌菜推荐吗？',
+                '🥘 私房菜': '听说你是个隐藏的厨艺大神，什么时候能请教几道拿手菜呀？😄',
+                '🍳 厨艺交流': '我最近学了一道新菜，感觉你会喜欢，下次有机会做给你尝尝！'
+            }
+        },
+        frank: {
+            pills: ['💪 健身计划', '🏋️ 训练技巧', '🥗 营养搭配', '🏃 有氧运动'],
+            tactics: {
+                '💪 健身计划': 'Frank，明天健身房见！对了，最近想增肌，有什么训练计划推荐吗？',
+                '🏋️ 训练技巧': '深蹲的姿势一直不太对，下次见面能帮我看看动作吗？',
+                '🥗 营养搭配': '健身后吃什么比较好？我想听听你的专业建议～',
+                '🏃 有氧运动': '最近想开始跑步，你有什么入门建议吗？比如配速、时间之类的'
+            }
+        },
+        grace: {
+            pills: ['🎨 设计灵感', '🌈 配色方案', '💻 设计工具', '📐 版式设计'],
+            tactics: {
+                '🎨 设计灵感': 'Grace，看你发的设计作品好棒！灵感都是从哪里找的呀？',
+                '🌈 配色方案': '这个配色方案我觉得超好看！能分享一下色值吗？想学习一下～',
+                '💻 设计工具': '最近想学 Figma，你有什么入门教程或者资源推荐吗？',
+                '📐 版式设计': '每次排版都觉得乱乱的，有什么版式设计的原则可以分享吗？'
+            }
+        },
+        henry: {
+            pills: ['📋 产品需求', '🚀 项目管理', '💡 产品思维', '📊 数据分析'],
+            tactics: {
+                '📋 产品需求': 'Henry，需求文档收到了！我看完再跟你讨论一下细节～',
+                '🚀 项目管理': '听说你最近在上一个新项目？进展怎么样，有空聊聊产品规划吗？',
+                '💡 产品思维': '一直想跟你学习产品思维，有什么入门的书或者文章推荐吗？',
+                '📊 数据分析': '最近在看产品数据，有些指标不太懂，能请教你吗？'
+            }
+        },
+        iris: {
+            pills: ['📷 摄影技巧', '🖼️ 摄影展', '📸 器材推荐', '🌅 风光摄影'],
+            tactics: {
+                '📷 摄影技巧': 'Iris，看你拍的照片太专业了！构图是怎么学的呀？',
+                '🖼️ 摄影展': '周末的摄影展我记下了！具体时间和地点能发我一下吗？',
+                '📸 器材推荐': '想入手第一台微单，预算 1 万左右，有什么推荐吗？',
+                '🌅 风光摄影': '一直想拍日出，但总是起不来床😂 有什么拍摄技巧吗？'
+            }
+        },
+        jack: {
+            pills: ['💼 创业交流', '🎯 路演准备', '💰 融资经验', '📈 市场拓展'],
+            tactics: {
+                '💼 创业交流': 'Jack，路演我很有兴趣！具体时间和地点能发我一下吗？',
+                '🎯 路演准备': '听说你之前拿过融资，路演 PPT 有什么制作技巧吗？',
+                '💰 融资经验': '最近也在看投资人，能跟你取取经吗？想听听你的经验～',
+                '📈 市场拓展': '你们的产品最近增长怎么样？有什么市场拓展的好方法吗？'
+            }
+        }
+    };
+
+    // Current contact's pills
+    let currentPills = [];
+
+    // Render Chat List
+    function renderChatList(filterQuery = '') {
+        const container = els.chatListContainer;
+        container.innerHTML = '';
+
+        const filtered = filterQuery
+            ? chatContacts.filter(c => c.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
+                                       c.lastMessage.toLowerCase().includes(filterQuery.toLowerCase()))
+            : chatContacts;
+
+        filtered.forEach(contact => {
+            const item = document.createElement('div');
+            item.className = 'chat-list-item';
+            item.onclick = () => openChat(contact.id);
+
+            const unreadClass = contact.unread > 0 ? 'chat-list-unread' : 'chat-list-unread hidden';
+
+            item.innerHTML = `
+                <div class="chat-list-avatar" style="background-color: ${contact.color}">${contact.avatar}</div>
+                <div class="chat-list-content">
+                    <div class="chat-list-header">
+                        <span class="chat-list-name">${contact.name}</span>
+                        <span class="chat-list-time">${contact.time}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="chat-list-message">${contact.lastMessage}</span>
+                        <span class="${unreadClass}">${contact.unread > 99 ? '99+' : contact.unread}</span>
+                    </div>
+                </div>
+            `;
+            container.appendChild(item);
+        });
+    }
+
+    // Open Single Chat
+    function openChat(contactId) {
+        const contact = chatContacts.find(c => c.id === contactId);
+        if (!contact) return;
+
+        currentContactId = contactId;
+        isChatListView = false;
+
+        // Load contact-specific pills and tactics
+        const contactData = CONTACT_TACTICS[contactId] || CONTACT_TACTICS.alice;
+        currentPills = contactData.pills;
+        currentTactics = contactData.tactics;
+
+        // Update UI
+        els.navTitle.textContent = contact.name;
+        els.backBtn.classList.add('show');
+        els.searchBtn.style.display = 'none';
+
+        // Switch tabs
+        document.getElementById('tab-chat-list').classList.remove('active');
+        document.getElementById('tab-chat').classList.add('active');
+
+        // Hide footer tabs (single chat view - Apple style)
+        document.querySelector('.footer-tabs').style.display = 'none';
+
+        // Show chat-specific elements (status pill and bottom stack)
+        document.querySelectorAll('.page-chat-floating').forEach(el => {
+            el.style.display = 'flex';
+        });
+
+        // Clear chat and add initial message
+        els.chat.innerHTML = `<div class="bubble bubble-left">${contact.lastMessage}</div>`;
+
+        // Update pills
+        renderPills();
+
+        // Reset status
+        updateStatus('processing');
+    }
+
+    // Render Pills for current contact
+    function renderPills() {
+        const tray = document.getElementById('pillTray');
+        if (!tray || !currentPills) return;
+
+        tray.innerHTML = currentPills.map(pill =>
+            `<div class="pill-btn" onclick="openPreview('${pill}', this)">${pill}</div>`
+        ).join('');
+    }
+
+    // Back to Chat List
+    function backToChatList() {
+        isChatListView = true;
+        currentContactId = null;
+
+        // Update UI
+        els.navTitle.textContent = '消息';
+        els.backBtn.classList.remove('show');
+        els.searchBtn.style.display = 'flex';
+
+        // Hide bottom sheet if open
+        toggleSheet(false);
+
+        // Switch tabs
+        document.getElementById('tab-chat').classList.remove('active');
+        document.getElementById('tab-chat-list').classList.add('active');
+
+        // Restore footer tabs (chat list view)
+        document.querySelector('.footer-tabs').style.display = 'flex';
+
+        document.querySelectorAll('.page-chat-floating').forEach(el => el.style.display = 'none');
+
+        // Re-render chat list
+        renderChatList();
+    }
+
+    // Toggle Search Modal
+    function toggleSearchModal() {
+        const modal = els.searchModal;
+        if (modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            els.searchInput.value = '';
+        } else {
+            modal.classList.add('show');
+            setTimeout(() => els.searchInput.focus(), 100);
+        }
+    }
+
+    // Filter Chat List
+    function filterChatList() {
+        const query = els.searchInput.value.trim();
+        renderChatList(query);
+    }
+
+    // Switch Tab Logic
+    function switchTab(index) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.page-chat-floating').forEach(el => el.style.display = 'none');
+
+        const titles = ['消息', '话题灵感', '对话判断', '偏好设置'];
+        els.navTitle.textContent = titles[index];
+
+        document.querySelectorAll('.footer-tabs .tab-item').forEach((el, i) => {
+            if(i === index) el.classList.add('active');
+            else el.classList.remove('active');
+        });
+
+        // Reset UI states
+        els.backBtn.classList.remove('show');
+        els.searchBtn.style.display = index === 0 ? 'flex' : 'none';
+        isChatListView = true;
+        currentContactId = null;
+
+        // Restore footer tabs when switching tabs
+        document.querySelector('.footer-tabs').style.display = 'flex';
+
+        if (index === 0) {
+            // Chat Tab - show list view
+            document.getElementById('tab-chat-list').classList.add('active');
+            renderChatList();
+        } else if (index === 1) {
+            document.getElementById('tab-explore').classList.add('active');
+        } else if (index === 2) {
+            document.getElementById('tab-insight').classList.add('active');
+        } else if (index === 3) {
+            document.getElementById('tab-profile').classList.add('active');
+        }
+    }
+
+    // AI preset comment in explore tab
+    function usePresetComment(keyword) {
+        // Use Alice's tactics as default for explore comments
+        const contactData = CONTACT_TACTICS.alice;
+        currentTactic = contactData.tactics[keyword] || '';
+        els.popoverContent.textContent = currentTactic;
+
+        // Switch to chat view with a default contact (Alice)
+        openChat('alice');
+
+        // Emulate popover pointing to an input or center
+        els.popoverArrow.style.left = `50%`;
+        els.popover.classList.add('show');
+    }
+
+    // Set Tone in Profile
+    function setTone(el, desc) {
+        document.querySelectorAll('.segmented-control .segment').forEach(s => s.classList.remove('active'));
+        el.classList.add('active');
+        document.getElementById('toneDesc').textContent = desc;
+    }
+
+    function openPreview(keyword, btn) {
+        // Get tactics from current contact or default to Alice
+        const contactData = CONTACT_TACTICS[currentContactId] || CONTACT_TACTICS.alice;
+        currentTactic = contactData.tactics[keyword] || '';
+        els.popoverContent.textContent = currentTactic;
+
+        const btnRect = btn.getBoundingClientRect();
+        const stackRect = els.stack.getBoundingClientRect();
+        const arrowX = (btnRect.left + btnRect.width/2) - stackRect.left;
+        els.popoverArrow.style.left = `${arrowX}px`;
+
+        els.popover.classList.add('show');
+        event.stopPropagation();
+    }
+
+    function prefillInput() {
+        if (currentTactic) {
+            els.input.value = currentTactic;
+            els.input.focus();
+            els.popover.classList.remove('show');
+        }
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!els.popover.contains(e.target)) els.popover.classList.remove('show');
+    });
+
+    function handleSend() {
+        const text = els.input.value.trim();
+        if (!text) return;
+
+        const b = document.createElement('div');
+        b.className = 'bubble bubble-right';
+        b.textContent = text;
+        els.chat.appendChild(b);
+        els.chat.scrollTop = els.chat.scrollHeight;
+        els.input.value = '';
+
+        updateStatus('processing');
+
+        // Get contact-specific reply
+        const contact = chatContacts.find(c => c.id === currentContactId);
+        const replyText = getContactReply(currentContactId);
+
+        setTimeout(() => {
+            const r = document.createElement('div');
+            r.className = 'bubble bubble-left';
+            r.textContent = replyText;
+            els.chat.appendChild(r);
+            els.chat.scrollTop = els.chat.scrollHeight;
+
+            updateStatus('high');
+        }, 1800);
+    }
+
+    // Get contact-specific reply
+    function getContactReply(contactId) {
+        const replies = {
+            alice: '哈哈，这个逻辑我给满分！感觉很有趣。',
+            bob: '从物理学角度来看，这个确实很有意思！让我想起了费曼的解释…',
+            cindy: '哇，听起来不错耶！下次带我去打卡呀～',
+            david: '嗯嗯，我懂你说的这种感觉。音乐就是这样一种奇妙的存在。',
+            emma: '听你这么说我都饿了！那家店一定要再去一次！',
+            frank: '不错！继续保持这个状态，下次训练可以加量了！',
+            grace: '从设计角度来说，这个想法很有创意！可以试试更深入的应用。',
+            henry: '这个思路很好，我觉得可以写进下一个版本的需求里。',
+            iris: '这个场景听起来很有画面感！我都想拿相机拍下来了。',
+            jack: '这个想法有商业价值！我们可以深入聊聊合作的可能性。'
+        };
+        return replies[contactId] || '哈哈，这个逻辑我给满分！感觉很有趣。';
+    }
+
+    function updateStatus(state) {
+        if (state === 'processing') {
+            els.statusText.textContent = '正在感知氛围...';
+            els.statusDot.style.backgroundColor = '#C7C7CC';
+            els.statusDot.style.boxShadow = 'none';
+        } else if (state === 'high') {
+            els.statusText.textContent = '交流渐入佳境';
+            els.statusDot.style.backgroundColor = '#34C759';
+            els.statusDot.style.boxShadow = '0 0 8px #34C759';
+            
+            // Anxiety: Low -> Green
+            els.anxietyBar.style.width = '15%';
+            els.anxietyBar.style.backgroundColor = '#34C759';
+            els.anxietyVal.textContent = '1/10 (安全)';
+            
+            // Momentum: High Positive -> Purple/Blue
+            els.momBar.style.left = '50%';
+            els.momBar.style.width = '45%'; 
+            els.momBar.style.backgroundColor = '#AF52DE';
+            els.momValText.textContent = '聊得很投机';
+            
+            els.stageVal.textContent = '相互吸引期';
+            els.attrText.textContent = '互动升级：你成功通过生活化的共同话题打开了对方的话匣子。现在的对话节奏非常舒适，可以继续保持这种自然的分享。';
+        }
+    }
+
+    function refreshSensing() {
+        updateStatus('processing');
+        setTimeout(() => {
+            els.statusText.textContent = '互动略显冷淡';
+            els.statusDot.style.backgroundColor = '#FF9500';
+            
+            // Initial Negative State: Orange Anxiety, Grey/Blue Momentum
+            els.anxietyBar.style.width = '60%';
+            els.anxietyBar.style.backgroundColor = '#FFCC00';
+            els.anxietyVal.textContent = '6/10 (轻微焦虑)';
+
+            els.momBar.style.left = '15%'; 
+            els.momBar.style.width = '35%'; 
+            els.momBar.style.backgroundColor = '#5AC8FA';
+            els.momValText.textContent = '存在阻力';
+        }, 1000);
+    }
+
+    function toggleSheet(show) {
+        if (show) els.overlay.classList.add('active');
+        else els.overlay.classList.remove('active');
+    }
+
+    // Initialize - render chat list on load
+    setTimeout(() => {
+        // Hide chat-specific elements on initial load (list view)
+        document.querySelectorAll('.page-chat-floating').forEach(el => el.style.display = 'none');
+        renderChatList();
+        refreshSensing();
+    }, 100);
+</script>
+
+</body>
+</html>
