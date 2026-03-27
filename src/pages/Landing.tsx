@@ -12,15 +12,15 @@ export default function Landing() {
             韦莉萍
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-2xl leading-relaxed mb-4 font-medium">
-            AI 产品探索者 ·
-            <span className="text-accent"> 关注用户行为与认知结构</span>
+            AI 产品经理 / AI Agent 方向 ·
+            <span className="text-accent"> 擅长把真实问题拆成可执行流程</span>
           </p>
           <p className="text-base text-slate-300 max-w-2xl leading-7">
-            具备物理与教育背景的 AI 产品探索者，关注用户行为与认知结构。
+            具备一线教学经验与独立产品实践，持续围绕教育、决策辅助与效率工具场景设计 AI 产品。
             <br />
-            围绕情绪陪伴、学习辅助与产品工具，设计并实现多个 AI 产品项目。
+            更关注用户真实问题、任务链路与人机协作，而不只是单点生成能力。
             <br />
-            致力于用结构化思维，将复杂问题转化为可落地的产品方案。
+            代表项目包括 PM 决策工作台、对话决策辅助与学习辅助产品。
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
@@ -45,25 +45,25 @@ export default function Landing() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             <ProjectCard
-              to="/case/wuli-ai"
-              title="悟理 AI"
-              subtitle="AI × 教育"
-              description="苏格拉底式物理 AI 私教。通过竞品评测发现 4 大痛点，设计分步引导 + 变式训练 + 间隔复习的闭环学习体验。"
-              tags={["AI", "教育科技", "React", "启发式教学"]}
+              to="/case/prodmind"
+              title="ProdMind AI"
+              subtitle="AI × PM Workflow"
+              description="面向产品经理的 AI 决策工作台。将洞察、方案、优先级与验证串成一条连续任务链，帮助用户从想法走到可决策。"
+              tags={["AI", "PM 工具", "Next.js", "Workflow"]}
             />
             <ProjectCard
               to="/case/echomate"
               title="EchoMate"
               subtitle="AI × 对话决策"
-              description="不是替你聊天，而是帮你把话说得更好。通过感知→推理→生成三层框架，帮助用户看懂对话并做出更优回复选择。"
+              description="不是替用户聊天，而是先分析对话状态，再提供策略和理由，帮助用户做出更合适的表达选择。"
               tags={["AI", "社交沟通", "Vue", "决策辅助"]}
             />
             <ProjectCard
-              to="/case/prodmind"
-              title="ProdMind AI"
-              subtitle="AI × PM Workflow"
-              description="像产品经理一样思考的 AI Copilot。将碎片化的 PM 工具串联为引导式工作流：洞察 → PRD → 优先级 → 用户验证，一条流水线。"
-              tags={["AI", "PM 工具", "Next.js", "RICE 框架"]}
+              to="/case/wuli-ai"
+              title="悟理 AI"
+              subtitle="AI × 教育"
+              description="从聊天答疑出发，逐步迭代为分步引导、变式验证与复习强化结合的学习闭环产品。"
+              tags={["AI", "教育科技", "React", "学习闭环"]}
             />
             <ProjectCard
               title="To be continued"

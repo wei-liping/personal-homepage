@@ -21,6 +21,15 @@ export default function CaseWuliAi() {
         </p>
       </Section>
 
+      <Section icon="⚡" title="快速看懂（Quick Scan）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>目标用户：需要在课后自学、复盘错题并建立解题路径的高中生</li>
+          <li>核心问题：学生往往看得懂答案，但不知道自己下一步该怎么做</li>
+          <li>我的工作：基于一线教学观察完成问题定义、学习流程设计、迭代优化和上线展示</li>
+          <li>当前结果：完成端到端可用产品，已从单点答疑迭代为可持续学习闭环</li>
+        </ul>
+      </Section>
+
       <Section icon="🎯" title="Problem（用户问题）">
         <p>用户在学习物理时的典型卡点是“看得懂讲解，但自己不会做”。</p>
         <ul className="list-disc list-inside mt-2 space-y-1 text-slate-400">
@@ -132,6 +141,14 @@ export default function CaseWuliAi() {
           <li>单步理解确认率</li>
           <li>变式题正确率</li>
           <li>7日复习完成率与掌握提升率</li>
+        </ul>
+      </Section>
+
+      <Section icon="🔁" title="关键迭代（Iteration）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>早期产品以聊天答疑为主，自测后发现只回答问题并不能支撑长期学习和复盘</li>
+          <li>随后补充知识树和每日练习模块，把单次问答扩展为“引导 - 验证 - 复习”的持续学习路径</li>
+          <li>围绕学习步骤粒度和反馈方式完成多轮迭代，让产品更接近真实学生的使用习惯</li>
         </ul>
       </Section>
 

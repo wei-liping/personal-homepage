@@ -23,6 +23,15 @@ export default function CaseEchoMate() {
         </p>
       </Section>
 
+      <Section icon="⚡" title="快速看懂（Quick Scan）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>目标用户：在社交或职场沟通中需要判断如何回复、是否推进关系的用户</li>
+          <li>核心问题：用户缺的不是一句话术，而是对对话状态和下一步策略的判断</li>
+          <li>我的工作：独立完成问题定义、产品定位、交互链路设计、迭代优化和上线展示</li>
+          <li>当前结果：完成可运行产品，已在真实用户试用中获得反馈并持续迭代</li>
+        </ul>
+      </Section>
+
       <Section icon="🎯" title="Problem：用户真正的聊天难点">
         <p>在真实社交中，用户常见的问题并不是“不会说话”，而是：</p>
         <ul className="list-disc list-inside mt-2 space-y-1 text-slate-400">
@@ -199,6 +208,14 @@ export default function CaseEchoMate() {
         <p className="text-slate-300 font-medium">
           在线体验：https://wei-liping.github.io/EchoMate/
         </p>
+      </Section>
+
+      <Section icon="🔁" title="关键迭代（Iteration）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>基于真实用户试用反馈，补充 MBTI 维度，让输出建议更贴近不同沟通风格</li>
+          <li>早期主要聚焦约会聊天，后根据使用反馈扩展到日常社交和职场沟通，提升适用范围</li>
+          <li>多轮迭代后，产品从“生成回复”进一步收敛为“分析状态 + 提供策略 + 解释理由”的决策辅助定位</li>
+        </ul>
       </Section>
 
       <Section icon="🔄" title="Reflection：项目反思">

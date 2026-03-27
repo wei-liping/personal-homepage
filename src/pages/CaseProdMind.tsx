@@ -20,6 +20,15 @@ export default function CaseProdMind() {
         </p>
       </Section>
 
+      <Section icon="⚡" title="快速看懂（Quick Scan）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>目标用户：需要快速整理洞察、输出方案并做优先级判断的产品经理</li>
+          <li>核心问题：工具分散，导致信息搬运重复、决策链路断裂</li>
+          <li>我的工作：独立完成问题分析、流程设计、功能定义、迭代优化和上线展示</li>
+          <li>当前结果：完成可运行产品，已支持从输入问题到导出方案的完整链路</li>
+        </ul>
+      </Section>
+
       <Section icon="🎯" title="Problem（用户问题）">
         <p>产品经理日常工作并不缺工具，缺的是“跨工具连贯决策”。</p>
         <ul className="list-disc list-inside mt-2 space-y-1 text-slate-400">
@@ -130,6 +139,14 @@ export default function CaseProdMind() {
           <li>完整流程完成率（Insight→Export）</li>
           <li>PRD 导出使用率与复用率</li>
           <li>RICE 排序后需求变更率</li>
+        </ul>
+      </Section>
+
+      <Section icon="🔁" title="关键迭代（Iteration）">
+        <ul className="list-disc list-inside space-y-1 text-slate-400">
+          <li>围绕结构化输出和流程连续性完成多轮迭代，让每一步结果可直接进入下一步，而不是重新整理上下文</li>
+          <li>在扩展阶段评估过接入平台评论抓取能力，希望进一步增强真实反馈输入</li>
+          <li>最终因合规风险暂未上线该能力，保留为后续优化方向，也进一步明确了产品边界和风险判断</li>
         </ul>
       </Section>
 
