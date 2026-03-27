@@ -1,6 +1,8 @@
 import CaseLayout, { Section, Decision } from "../components/CaseLayout";
 
 export default function CaseEchoMate() {
+  const mobilePrototypeUrl = `${import.meta.env.BASE_URL}prototypes/echomate-mobile.html`;
+
   return (
     <CaseLayout
       title="EchoMate — AI 对话辅助产品案例"
@@ -218,6 +220,27 @@ export default function CaseEchoMate() {
         </ul>
       </Section>
 
+      <Section icon="📱" title="移动端方向探索">
+        <p>
+          这不是独立新项目，而是 EchoMate 在移动端场景下的形态延展。核心目标没有变化，仍然是帮助用户在真实聊天中更快判断现在该怎么回。
+        </p>
+        <p>
+          我之所以补充 App 版本原型，是因为聊天辅助本身就是高频、即时、强上下文依赖的场景。相比网页，手机端更适合随时查看对话、获取建议并直接完成回复。
+        </p>
+        <p className="text-slate-300 font-medium">
+          查看移动端原型：
+          {" "}
+          <a
+            href={mobilePrototypeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent/80 hover:text-accent transition-colors"
+          >
+            EchoMate App Prototype
+          </a>
+        </p>
+      </Section>
+
       <Section icon="🔄" title="Reflection：项目反思">
         <p>
           在这个项目中，我最大的收获是：AI
@@ -237,6 +260,7 @@ export default function CaseEchoMate() {
           <li>长期记忆（对话关系建模）</li>
           <li>插件化（接入聊天工具）</li>
           <li>更细粒度的语气控制</li>
+          <li>继续验证移动端形态下的高频使用路径和建议触达效率</li>
         </ul>
         <p className="text-slate-300 font-medium">
           EchoMate · Make every reply count.

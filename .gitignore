@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local prototype and CV working files
+cv_edit/
+WuLi-AI.html
