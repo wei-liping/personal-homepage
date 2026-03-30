@@ -6,13 +6,12 @@ export default function CaseEchoMate() {
   return (
     <CaseLayout
       title="EchoMate — AI 对话辅助产品案例"
-      subtitle="Case Study #2"
+      subtitle="Case Study #3"
       tags={["AI 对话辅助", "社交场景", "Vue 3", "Vite", "决策支持"]}
       tldr="EchoMate 是一个帮助用户“把话说得更好”的 AI 对话决策工具。它不替用户说话，而是通过对话状态分析、策略生成与理由解释，帮助用户做出更合适的表达选择。"
       github="https://github.com/wei-liping/EchoMate"
       live="https://wei-liping.github.io/EchoMate/"
-      prev={{ to: "/case/wuli-ai", label: "悟理 AI" }}
-      next={{ to: "/case/prodmind", label: "ProdMind AI" }}
+      prev={{ to: "/case/prodmind", label: "ProdMind AI" }}
     >
       <Section icon="📌" title="项目概述">
         <p>

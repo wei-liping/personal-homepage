@@ -111,20 +111,6 @@ export default function Resume() {
                   <li>基于真实用户反馈完成多轮迭代，新增 MBTI 维度，并将场景扩展到职场沟通</li>
                 </ul>
               </div>
-
-              <div>
-                <div className="flex items-baseline justify-between mb-2">
-                  <h4 className="text-sm font-semibold text-slate-200">
-                    悟理 AI —— 面向高中生的 AI 学习辅助产品
-                  </h4>
-                  <span className="text-xs text-slate-500 font-mono">2026 - 至今</span>
-                </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
-                  <li>基于一线教学观察，定位学生“看得懂答案但不会做”的核心问题</li>
-                  <li>从聊天答疑逐步迭代为“分步引导 → 变式验证 → 复习强化”的学习闭环</li>
-                  <li>在自测中补充知识树和每日练习模块，使产品更接近真实学习路径</li>
-                </ul>
-              </div>
             </div>
           </section>
 

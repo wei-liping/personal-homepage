@@ -5,7 +5,6 @@ export default function Landing() {
   return (
     <div className="pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-6">
-        {/* Hero */}
         <section className="mb-24">
           <p className="text-sm font-mono text-accent/70 mb-4">你好，我是</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -20,7 +19,7 @@ export default function Landing() {
             <br />
             更关注用户真实问题、任务链路与人机协作，而不只是单点生成能力。
             <br />
-            代表项目包括 PM 决策工作台、对话决策辅助与学习辅助产品。
+            当前公开项目聚焦 AI 求职工作台、PM 决策工作台与对话决策辅助产品。
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
@@ -38,12 +37,18 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* Projects */}
         <section>
           <h2 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-8">
             精选项目
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <ProjectCard
+              to="/case/jobhunter"
+              title="JobHunter AI"
+              subtitle="AI × 求职工作台"
+              description="把找岗位、看 JD、改简历、生成开场白、模拟面试和内容沉淀放进同一套本地工作流里，减少在多个工具之间反复切换。"
+              tags={["AI 产品", "求职工作流", "本地优先", "Workflow"]}
+            />
             <ProjectCard
               to="/case/prodmind"
               title="ProdMind AI"
@@ -59,17 +64,10 @@ export default function Landing() {
               tags={["AI", "社交沟通", "Vue", "决策辅助"]}
             />
             <ProjectCard
-              to="/case/wuli-ai"
-              title="悟理 AI"
-              subtitle="AI × 教育"
-              description="从聊天答疑出发，逐步迭代为分步引导、变式验证与复习强化结合的学习闭环产品。"
-              tags={["AI", "教育科技", "React", "学习闭环"]}
-            />
-            <ProjectCard
-              title="To be continued"
-              subtitle="筹备中"
-              description="下一个项目正在迭代中，敬请期待。"
-              tags={["Coming Soon"]}
+              title="To Be Continued"
+              subtitle="Next Case"
+              description="下一个项目还在整理中，等问题、路径和结果都足够清楚之后再公开。"
+              tags={["New Project", "In Progress"]}
               comingSoon
             />
           </div>

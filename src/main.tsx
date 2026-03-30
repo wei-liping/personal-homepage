@@ -4,7 +4,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Layout from "./components/Layout";
 import Landing from "./pages/Landing";
-import CaseWuliAi from "./pages/CaseWuliAi";
+import CaseJobHunter from "./pages/CaseJobHunter";
 import CaseEchoMate from "./pages/CaseEchoMate";
 import CaseProdMind from "./pages/CaseProdMind";
 import About from "./pages/About";
@@ -16,7 +16,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Landing />} />
-          <Route path="case/wuli-ai" element={<CaseWuliAi />} />
+          <Route path="case/jobhunter" element={<CaseJobHunter />} />
           <Route path="case/echomate" element={<CaseEchoMate />} />
           <Route path="case/prodmind" element={<CaseProdMind />} />
           <Route path="about" element={<About />} />
