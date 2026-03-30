@@ -70,8 +70,7 @@ export default function Resume() {
               个人简介
             </h3>
             <p className="text-sm text-slate-400 leading-relaxed">
-              浙江大学物理学硕士，具备一线高中教学经验，持续围绕教育、决策辅助与效率工具场景开展
-              AI 产品实践。擅长从真实用户问题中提炼需求，将复杂任务拆解为连续流程，设计“分析、判断、执行、反馈”的产品链路，并通过多轮迭代持续优化产品可用性。
+              浙江大学物理学硕士，具备一线教学经验与独立产品实践。擅长从真实用户问题中提炼需求，将复杂任务拆解为连续流程，设计“分析、判断、执行、反馈”的产品链路，并通过多轮迭代持续优化产品可用性。
             </p>
           </section>
 
@@ -83,13 +82,79 @@ export default function Resume() {
               项目经历
             </h3>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div>
-                <div className="flex items-baseline justify-between mb-2">
+                <div className="flex items-baseline justify-between mb-2 gap-4">
+                  <h4 className="text-sm font-semibold text-slate-200">
+                    JobHunter｜面向真实求职流程的 AI 工作台
+                  </h4>
+                  <span className="text-xs text-slate-500 font-mono shrink-0">2026.02 - 至今</span>
+                </div>
+                <div className="space-y-1 text-sm text-slate-500 mb-3">
+                  <p>角色：独立负责</p>
+                  <p>
+                    项目案例：{' '}
+                    <a
+                      href="https://wei-liping.github.io/personal-homepage/#/case/jobhunter"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      wei-liping.github.io/personal-homepage/#/case/jobhunter
+                    </a>
+                  </p>
+                  <p>
+                    GitHub：{' '}
+                    <a
+                      href="https://github.com/wei-liping/JobHunter"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      github.com/wei-liping/JobHunter
+                    </a>
+                  </p>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
+                  <li>面向求职过程中“找岗位、看 JD、改简历、写开场白、模拟面试、内容沉淀分散在不同工具中”的问题，识别出核心矛盾不是缺少单点功能，而是整条求职链路容易断裂</li>
+                  <li>将产品设计为“首页导航 + 岗位探索 + 简历优化 + 模拟面试 + 内容管理”四栏结构，让不同任务各自聚焦，同时保持岗位、简历与记录在同一系统内持续传递</li>
+                  <li>在岗位探索中接入本机 BOSS 搜索，使产品入口更贴近真实找岗行为；在简历优化中围绕目标岗位提供评估、润色与开场白生成；在模拟面试中继续复用岗位和简历上下文，增强练习针对性</li>
+                  <li>将内容管理作为正式模块沉淀岗位、简历版本、投递记录、面试记录与复盘内容，减少重复整理与信息丢失</li>
+                  <li>完成可运行产品并形成清晰的本地工作流闭环，验证了“AI 更适合接住多步骤任务链，而不是只负责单次生成”的产品方向</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-baseline justify-between mb-2 gap-4">
                   <h4 className="text-sm font-semibold text-slate-200">
                     ProdMind AI —— 面向产品经理的 AI 决策工作台
                   </h4>
-                  <span className="text-xs text-slate-500 font-mono">2026 - 至今</span>
+                  <span className="text-xs text-slate-500 font-mono shrink-0">2026 - 至今</span>
+                </div>
+                <div className="space-y-1 text-sm text-slate-500 mb-3">
+                  <p>角色：独立负责</p>
+                  <p>
+                    项目案例：{' '}
+                    <a
+                      href="https://wei-liping.github.io/personal-homepage/#/case/prodmind"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      wei-liping.github.io/personal-homepage/#/case/prodmind
+                    </a>
+                  </p>
+                  <p>
+                    GitHub：{' '}
+                    <a
+                      href="https://github.com/wei-liping/ProdMind-AI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      github.com/wei-liping/ProdMind-AI
+                    </a>
+                  </p>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
                   <li>围绕“洞察、方案、优先级、验证分散在不同工具中”的问题，设计连续任务链路</li>
@@ -99,11 +164,36 @@ export default function Resume() {
               </div>
 
               <div>
-                <div className="flex items-baseline justify-between mb-2">
+                <div className="flex items-baseline justify-between mb-2 gap-4">
                   <h4 className="text-sm font-semibold text-slate-200">
                     EchoMate —— AI 社交对话决策工具
                   </h4>
-                  <span className="text-xs text-slate-500 font-mono">2026 - 至今</span>
+                  <span className="text-xs text-slate-500 font-mono shrink-0">2026 - 至今</span>
+                </div>
+                <div className="space-y-1 text-sm text-slate-500 mb-3">
+                  <p>角色：独立负责</p>
+                  <p>
+                    项目案例：{' '}
+                    <a
+                      href="https://wei-liping.github.io/personal-homepage/#/case/echomate"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      wei-liping.github.io/personal-homepage/#/case/echomate
+                    </a>
+                  </p>
+                  <p>
+                    GitHub：{' '}
+                    <a
+                      href="https://github.com/wei-liping/EchoMate"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      github.com/wei-liping/EchoMate
+                    </a>
+                  </p>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
                   <li>将产品定位为“对话决策辅助工具”，设计“状态分析 → 策略建议 → 理由解释”的核心链路</li>
@@ -127,8 +217,7 @@ export default function Resume() {
                   浙江大学附属中学 / 杭州富阳中学｜高中物理教师
                 </p>
                 <p>
-                  长期面向高中生开展教学，积累真实用户观察经验，并持续归纳理解负担、问题拆解和反馈机制上的共性问题。这段经历为后续教育类
-                  AI 产品的问题定义提供了直接场景基础。
+                  长期处在高密度反馈环境中，持续观察不同人面对复杂任务时的理解负担、问题拆解方式和反馈差异。这段经历也让我更重视真实用户场景中的行为差异，而不是只停留在抽象需求层面。
                 </p>
               </div>
             </div>

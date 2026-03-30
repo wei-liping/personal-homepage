@@ -15,7 +15,7 @@ export default function Landing() {
             <span className="text-accent"> 擅长把真实问题拆成可执行流程</span>
           </p>
           <p className="text-base text-slate-300 max-w-2xl leading-7">
-            具备一线教学经验与独立产品实践，持续围绕教育、决策辅助与效率工具场景设计 AI 产品。
+            具备一线教学经验与独立产品实践，持续围绕决策辅助、效率工具与人机协作场景设计 AI 产品。
             <br />
             更关注用户真实问题、任务链路与人机协作，而不只是单点生成能力。
             <br />
