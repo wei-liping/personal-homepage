@@ -49,12 +49,9 @@ export default function Landing() {
         </div>
 
         <section className="mb-14">
-          <h2 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-3">
+          <h2 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-8">
             精选项目
           </h2>
-          <p className="text-sm text-slate-500 mb-8 max-w-2xl leading-relaxed">
-            每个案例均含背景—挑战—行动—结果叙事；完整图文见案例页（可替换为你的产品截图）。
-          </p>
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mb-10">
             <ProjectCard
               to="/case/jobhunter"
