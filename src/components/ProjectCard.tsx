@@ -20,34 +20,38 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const content = (
     <div
-      className={`group interactive-card relative rounded-xl border border-white/5 bg-white/[0.02] p-6 ${
+      className={`group interactive-card relative rounded-2xl border border-gray-200/90 bg-white p-7 card-shadow ${
         comingSoon
           ? "opacity-50 cursor-default"
-          : "hover:bg-white/[0.045] hover:border-accent/25 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
+          : "card-shadow-hover hover:border-blue-200/80 hover:scale-[1.015]"
       }`}
     >
       {comingSoon && (
-        <span className="absolute top-4 right-4 text-xs font-mono text-slate-500 border border-slate-700 rounded-full px-3 py-1">
+        <span className="absolute top-4 right-4 text-xs font-mono text-slate-500 border border-gray-300 rounded-full px-3 py-1">
           即将上线
         </span>
       )}
 
-      <p className="text-sm font-mono text-accent/70 mb-2">{subtitle}</p>
-      <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2 tracking-tight">
+      <p className="text-sm font-mono text-blue-600 mb-2 tracking-wide">
+        {subtitle}
+      </p>
+      <h3 className="text-xl font-semibold text-slate-900 mb-3 flex items-center gap-2 tracking-tight">
         {title}
         {!comingSoon && (
           <ArrowUpRight
             size={16}
-            className="text-slate-500 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
+            className="text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
           />
         )}
       </h3>
-      <p className="text-base text-slate-300 leading-7 mb-4">{description}</p>
+      <p className="text-base text-slate-600 leading-relaxed mb-4">
+        {description}
+      </p>
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
           <span
             key={tag}
-            className="interactive-chip text-xs font-mono text-accent/60 bg-accent/5 rounded-full px-3 py-1 hover:bg-accent/10"
+            className="interactive-chip inline-block text-xs font-mono text-blue-700 bg-blue-50 rounded-full px-3 py-1 hover:bg-blue-100 border border-blue-100/80"
           >
             {tag}
           </span>
@@ -60,7 +64,7 @@ export default function ProjectCard({
   return (
     <Link
       to={to}
-      className="block rounded-xl focus-visible:outline-accent/60 focus-visible:outline-2 focus-visible:outline-offset-2"
+      className="block rounded-2xl focus-visible:outline-blue-600/60 focus-visible:outline-2 focus-visible:outline-offset-2"
     >
       {content}
     </Link>

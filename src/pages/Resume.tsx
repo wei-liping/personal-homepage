@@ -9,18 +9,20 @@ export default function Resume() {
       <div className="max-w-3xl mx-auto px-6">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-accent transition-colors mb-10"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900 transition-colors mb-10"
         >
           <ArrowLeft size={14} />
           返回首页
         </Link>
 
         <div className="flex items-start justify-between mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-white">简历</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900">
+            简历
+          </h1>
           <a
             href={resumePdfUrl}
             download
-            className="inline-flex items-center gap-2 text-sm text-accent border border-accent/30 rounded-lg px-4 py-2 hover:bg-accent/10 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 border border-blue-200 rounded-xl px-4 py-2.5 bg-white card-shadow hover:bg-blue-50 hover:border-blue-300 transition-colors"
           >
             <Download size={15} />
             下载 PDF
@@ -28,14 +30,14 @@ export default function Resume() {
         </div>
 
         {/* Resume content */}
-        <div className="space-y-10">
+        <div className="space-y-12">
           {/* Header */}
           <section>
-            <h2 className="text-xl font-bold text-white mb-1">韦莉萍</h2>
-            <p className="text-sm text-accent/70 font-mono mb-3">
+            <h2 className="text-xl font-bold text-slate-900 mb-1">韦莉萍</h2>
+            <p className="text-sm text-blue-600 font-mono mb-3">
               AI产品经理 / AI Agent产品方向
             </p>
-            <div className="space-y-1 text-sm text-slate-400">
+            <div className="space-y-1 text-sm text-slate-600">
               <p>邮箱：weiliping@zju.edu.cn</p>
               <p>
                 作品集：{" "}
@@ -43,7 +45,7 @@ export default function Resume() {
                   href="https://wei-liping.github.io/personal-homepage/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent/70 hover:text-accent transition-colors"
+                  className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                 >
                   wei-liping.github.io/personal-homepage
                 </a>
@@ -54,7 +56,7 @@ export default function Resume() {
                   href="https://github.com/wei-liping"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent/70 hover:text-accent transition-colors"
+                  className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                 >
                   github.com/wei-liping
                 </a>
@@ -62,30 +64,30 @@ export default function Resume() {
             </div>
           </section>
 
-          <hr className="border-white/5" />
+          <hr className="border-gray-200 my-10" />
 
           {/* Summary */}
           <section>
-            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               个人简介
             </h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               浙江大学物理学硕士，具备一线教学经验与独立产品实践。擅长从真实用户问题中提炼需求，将复杂任务拆解为连续流程，设计“分析、判断、执行、反馈”的产品链路，并通过多轮迭代持续优化产品可用性。
             </p>
           </section>
 
-          <hr className="border-white/5" />
+          <hr className="border-gray-200 my-10" />
 
           {/* Projects */}
           <section>
-            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               项目经历
             </h3>
 
             <div className="space-y-8">
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-200">
+                  <h4 className="text-sm font-semibold text-slate-900">
                     JobHunter｜面向真实求职流程的 AI 工作台
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">
@@ -100,7 +102,7 @@ export default function Resume() {
                       href="https://wei-liping.github.io/personal-homepage/#/case/jobhunter"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       wei-liping.github.io/personal-homepage/#/case/jobhunter
                     </a>
@@ -111,13 +113,13 @@ export default function Resume() {
                       href="https://github.com/wei-liping/JobHunter"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       github.com/wei-liping/JobHunter
                     </a>
                   </p>
                 </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
                     面向求职过程中“找岗位、看
                     JD、改简历、写开场白、模拟面试、内容沉淀分散在不同工具中”的问题，识别出核心矛盾不是缺少单点功能，而是整条求职链路容易断裂
@@ -142,7 +144,7 @@ export default function Resume() {
 
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-200">
+                  <h4 className="text-sm font-semibold text-slate-900">
                     InsightFlow AI｜多 Agent 驱动的用户洞察与产品决策系统
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">
@@ -157,7 +159,7 @@ export default function Resume() {
                       href="https://wei-liping.github.io/personal-homepage/#/case/insightflow"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       wei-liping.github.io/personal-homepage/#/case/insightflow
                     </a>
@@ -168,13 +170,13 @@ export default function Resume() {
                       href="https://github.com/wei-liping/InsightFlow"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       github.com/wei-liping/InsightFlow
                     </a>
                   </p>
                 </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
                     面向产品经理“拿到大量用户反馈却难以快速形成判断”的痛点，搭建从数据输入、洞察分析、优先级判断、PRD
                     草案到访谈验证的一体化产品工作台
@@ -200,7 +202,7 @@ export default function Resume() {
 
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-200">
+                  <h4 className="text-sm font-semibold text-slate-900">
                     ProdMind AI —— 面向产品经理的 AI 决策工作台探索
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">
@@ -215,7 +217,7 @@ export default function Resume() {
                       href="https://wei-liping.github.io/personal-homepage/#/case/prodmind"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       wei-liping.github.io/personal-homepage/#/case/prodmind
                     </a>
@@ -226,13 +228,13 @@ export default function Resume() {
                       href="https://github.com/wei-liping/ProdMind-AI"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       github.com/wei-liping/ProdMind-AI
                     </a>
                   </p>
                 </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
                     围绕“洞察、方案、优先级、验证分散在不同工具中”的问题，先行验证连续任务链路是否成立
                   </li>
@@ -249,7 +251,7 @@ export default function Resume() {
 
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-200">
+                  <h4 className="text-sm font-semibold text-slate-900">
                     EchoMate —— AI 社交对话决策工具
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">
@@ -264,7 +266,7 @@ export default function Resume() {
                       href="https://wei-liping.github.io/personal-homepage/#/case/echomate"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       wei-liping.github.io/personal-homepage/#/case/echomate
                     </a>
@@ -275,13 +277,13 @@ export default function Resume() {
                       href="https://github.com/wei-liping/EchoMate"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent/70 hover:text-accent transition-colors"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
                     >
                       github.com/wei-liping/EchoMate
                     </a>
                   </p>
                 </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
                     将产品定位为“对话决策辅助工具”，设计“状态分析 → 策略建议 →
                     理由解释”的核心链路
@@ -298,16 +300,16 @@ export default function Resume() {
             </div>
           </section>
 
-          <hr className="border-white/5" />
+          <hr className="border-gray-200 my-10" />
 
           {/* Work */}
           <section>
-            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               工作经历
             </h3>
-            <div className="space-y-3 text-sm text-slate-400 leading-relaxed">
+            <div className="space-y-3 text-sm text-slate-600 leading-relaxed">
               <div>
-                <p className="text-slate-300 font-medium">
+                <p className="text-slate-900 font-semibold">
                   杭州市富阳区江南中学｜高中物理教师
                 </p>
                 <p>
@@ -317,22 +319,22 @@ export default function Resume() {
             </div>
           </section>
 
-          <hr className="border-white/5" />
+          <hr className="border-gray-200 my-10" />
 
           {/* Education */}
           <section>
-            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               教育与科研
             </h3>
-            <div className="space-y-4 text-sm text-slate-400 leading-relaxed">
+            <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
               <div>
-                <p className="text-slate-300 font-medium">
+                <p className="text-slate-900 font-semibold">
                   浙江大学｜理论物理硕士｜2020 - 2023
                 </p>
                 <p>专业前 10%，荣获优秀研究生、优秀团员、学业奖学金 ×2。</p>
               </div>
               <div>
-                <p className="text-slate-300 font-medium">
+                <p className="text-slate-900 font-semibold">
                   科研课题｜负责人｜2021 - 2023
                 </p>
                 <p>
@@ -342,22 +344,22 @@ export default function Resume() {
             </div>
           </section>
 
-          <hr className="border-white/5" />
+          <hr className="border-gray-200 my-10" />
 
           {/* Skills */}
           <section>
-            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               核心能力
             </h3>
-            <div className="grid sm:grid-cols-2 gap-4 text-sm text-slate-400 leading-relaxed">
+            <div className="grid sm:grid-cols-2 gap-4 text-sm text-slate-600 leading-relaxed">
               <div>
-                <p className="text-slate-300 font-medium mb-2">产品</p>
+                <p className="text-slate-900 font-semibold mb-2">产品</p>
                 <p>
                   用户洞察 · 需求分析 · 任务流程设计 · 决策辅助设计 · 结构化表达
                 </p>
               </div>
               <div>
-                <p className="text-slate-300 font-medium mb-2">技术</p>
+                <p className="text-slate-900 font-semibold mb-2">技术</p>
                 <p>
                   React / Vue · TypeScript · Prompt Engineering · LLM API ·
                   Workflow 设计

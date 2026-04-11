@@ -19,23 +19,31 @@ export default function CaseEchoMate() {
           对话辅助产品。它不直接替用户生成回复，
           而是通过分析对话状态，提供多种回复策略与决策依据，帮助用户做出更合适的表达选择。
         </p>
-        <p className="text-slate-300 font-medium">
+        <p className="text-slate-900 font-semibold">
           核心定位：AI 不替用户说话，而是帮助用户更好地表达自己。
         </p>
       </Section>
 
       <Section icon="⚡" title="快速看懂（Quick Scan）">
-        <ul className="list-disc list-inside space-y-1 text-slate-400">
-          <li>目标用户：在社交或职场沟通中需要判断如何回复、是否推进关系的用户</li>
-          <li>核心问题：用户缺的不是一句话术，而是对对话状态和下一步策略的判断</li>
-          <li>我的工作：独立完成问题定义、产品定位、交互链路设计、迭代优化和上线展示</li>
-          <li>当前结果：完成可运行产品，已在真实用户试用中获得反馈并持续迭代</li>
+        <ul className="list-disc list-inside space-y-1 text-slate-600">
+          <li>
+            目标用户：在社交或职场沟通中需要判断如何回复、是否推进关系的用户
+          </li>
+          <li>
+            核心问题：用户缺的不是一句话术，而是对对话状态和下一步策略的判断
+          </li>
+          <li>
+            我的工作：独立完成问题定义、产品定位、交互链路设计、迭代优化和上线展示
+          </li>
+          <li>
+            当前结果：完成可运行产品，已在真实用户试用中获得反馈并持续迭代
+          </li>
         </ul>
       </Section>
 
       <Section icon="🎯" title="Problem：用户真正的聊天难点">
         <p>在真实社交中，用户常见的问题并不是“不会说话”，而是：</p>
-        <ul className="list-disc list-inside mt-2 space-y-1 text-slate-400">
+        <ul className="list-disc list-inside mt-2 space-y-1 text-slate-600">
           <li>不确定这句话会不会说错</li>
           <li>无法判断对方的情绪或态度</li>
           <li>不知道当前对话处于什么阶段（升温 / 冷却）</li>
@@ -50,7 +58,7 @@ export default function CaseEchoMate() {
           ChatGPT）的使用方式后发现：它们擅长生成“一个看起来不错的回复”，
           但无法解决用户在真实聊天中的核心决策问题。
         </p>
-        <ul className="list-disc list-inside mt-2 space-y-1 text-slate-400">
+        <ul className="list-disc list-inside mt-2 space-y-1 text-slate-600">
           <li>是否应该回复？</li>
           <li>应该用什么语气？</li>
           <li>现在是推进还是收敛？</li>
@@ -63,20 +71,20 @@ export default function CaseEchoMate() {
           基于上述洞察，EchoMate 被设计为一个对话决策辅助系统（Decision Support
           Tool）。
         </p>
-        <p className="text-slate-300 font-medium">
+        <p className="text-slate-900 font-semibold">
           1) 多回复策略（而非单一答案）
         </p>
-        <ul className="list-disc list-inside mt-1 space-y-1 text-slate-400">
+        <ul className="list-disc list-inside mt-1 space-y-1 text-slate-600">
           <li>提供 2-3 条不同方向回复</li>
           <li>用户可以选择或改写</li>
           <li>保留表达主动权</li>
         </ul>
-        <p className="text-slate-300 font-medium mt-4">2) 解释机制（Why）</p>
-        <ul className="list-disc list-inside mt-1 space-y-1 text-slate-400">
+        <p className="text-slate-900 font-semibold mt-4">2) 解释机制（Why）</p>
+        <ul className="list-disc list-inside mt-1 space-y-1 text-slate-600">
           <li>每条建议附带理由</li>
           <li>帮助用户理解背后的沟通逻辑</li>
         </ul>
-        <p className="text-slate-300 font-medium">
+        <p className="text-slate-900 font-semibold">
           目标不是“帮用户说”，而是“教用户怎么说”。
         </p>
       </Section>
@@ -87,47 +95,47 @@ export default function CaseEchoMate() {
           设计为感知→推理→生成三层结构。
         </p>
         <div className="space-y-3 mt-2">
-          <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
-            <p className="text-sm text-slate-200 font-medium mb-1">
+          <div className="rounded-xl border border-gray-200/90 border-l-[3px] border-l-blue-500/80 bg-white p-4 card-shadow card-shadow-hover interactive-card">
+            <p className="text-sm text-slate-900 font-semibold mb-1">
               感知层（Perception Layer）
             </p>
-            <p className="text-xs text-slate-400 mb-2">
+            <p className="text-xs text-slate-600 mb-2">
               解决问题：用户无法准确理解对方状态
             </p>
-            <ul className="list-disc list-inside text-xs text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-xs text-slate-600 space-y-1">
               <li>情绪识别</li>
               <li>冷淡 / 回避信号检测</li>
               <li>关键信息提取</li>
             </ul>
           </div>
-          <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
-            <p className="text-sm text-slate-200 font-medium mb-1">
+          <div className="rounded-xl border border-gray-200/90 border-l-[3px] border-l-blue-500/80 bg-white p-4 card-shadow card-shadow-hover interactive-card">
+            <p className="text-sm text-slate-900 font-semibold mb-1">
               推理层（Reasoning Layer）
             </p>
-            <p className="text-xs text-slate-400 mb-2">
+            <p className="text-xs text-slate-600 mb-2">
               解决问题：用户无法判断对话阶段
             </p>
-            <ul className="list-disc list-inside text-xs text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-xs text-slate-600 space-y-1">
               <li>对话阶段判断（开场 / 熟悉 / 冷却）</li>
               <li>对话动量分析（上升 / 停滞 / 下降）</li>
               <li>阻力来源识别</li>
             </ul>
           </div>
-          <div className="rounded-lg border border-white/5 bg-white/[0.02] p-4">
-            <p className="text-sm text-slate-200 font-medium mb-1">
+          <div className="rounded-xl border border-gray-200/90 border-l-[3px] border-l-blue-500/80 bg-white p-4 card-shadow card-shadow-hover interactive-card">
+            <p className="text-sm text-slate-900 font-semibold mb-1">
               生成层（Generation Layer）
             </p>
-            <p className="text-xs text-slate-400 mb-2">
+            <p className="text-xs text-slate-600 mb-2">
               解决问题：用户不知道下一句怎么说
             </p>
-            <ul className="list-disc list-inside text-xs text-slate-400 space-y-1">
+            <ul className="list-disc list-inside text-xs text-slate-600 space-y-1">
               <li>提供多种回复策略</li>
               <li>给出具体表达方式</li>
               <li>提供后续对话引导</li>
             </ul>
           </div>
         </div>
-        <p className="text-slate-300 font-medium">
+        <p className="text-slate-900 font-semibold">
           关键设计原则：让“生成结果”来自“结构化推理”，而不是直接生成。
         </p>
       </Section>
@@ -136,25 +144,25 @@ export default function CaseEchoMate() {
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
-              <tr className="border-b border-white/10">
-                <th className="text-left py-3 pr-4 text-accent/60 font-mono font-normal">
+              <tr className="border-b border-gray-200">
+                <th className="text-left py-3 pr-4 text-blue-600 font-mono font-normal">
                   传统 AI 工具
                 </th>
-                <th className="text-left py-3 text-accent/60 font-mono font-normal">
+                <th className="text-left py-3 text-blue-600 font-mono font-normal">
                   EchoMate
                 </th>
               </tr>
             </thead>
-            <tbody className="text-slate-400">
-              <tr className="border-b border-white/5">
+            <tbody className="text-slate-600">
+              <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">单一回复</td>
                 <td className="py-3">多策略选择</td>
               </tr>
-              <tr className="border-b border-white/5">
+              <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">直接生成</td>
                 <td className="py-3">分析 + 推理 + 生成</td>
               </tr>
-              <tr className="border-b border-white/5">
+              <tr className="border-b border-gray-100">
                 <td className="py-3 pr-4">替用户表达</td>
                 <td className="py-3">辅助用户表达</td>
               </tr>
@@ -168,7 +176,7 @@ export default function CaseEchoMate() {
       </Section>
 
       <Section icon="🎯" title="使用场景（Use Cases）">
-        <ul className="list-disc list-inside space-y-1 text-slate-400">
+        <ul className="list-disc list-inside space-y-1 text-slate-600">
           <li>不知道如何回复一条消息</li>
           <li>想让聊天更自然、有趣</li>
           <li>在 dating 场景中破冰或推进关系</li>
@@ -200,40 +208,48 @@ export default function CaseEchoMate() {
       </Section>
 
       <Section icon="🚀" title="项目成果（Project Outcome）">
-        <ul className="list-disc list-inside space-y-1 text-slate-400">
+        <ul className="list-disc list-inside space-y-1 text-slate-600">
           <li>完整实现前端产品（Vue 3 + Vite）</li>
           <li>支持多模型接入（OpenAI-compatible API）</li>
           <li>实现结构化对话分析 + 多策略生成</li>
           <li>支持真实场景使用（聊天辅助）</li>
         </ul>
-        <p className="text-slate-300 font-medium">
+        <p className="text-slate-900 font-semibold">
           在线体验：https://wei-liping.github.io/EchoMate/
         </p>
       </Section>
 
       <Section icon="🔁" title="关键迭代（Iteration）">
-        <ul className="list-disc list-inside space-y-1 text-slate-400">
-          <li>基于真实用户试用反馈，补充 MBTI 维度，让输出建议更贴近不同沟通风格</li>
-          <li>早期主要聚焦约会聊天，后根据使用反馈扩展到日常社交和职场沟通，提升适用范围</li>
-          <li>多轮迭代后，产品从“生成回复”进一步收敛为“分析状态 + 提供策略 + 解释理由”的决策辅助定位</li>
+        <ul className="list-disc list-inside space-y-1 text-slate-600">
+          <li>
+            基于真实用户试用反馈，补充 MBTI 维度，让输出建议更贴近不同沟通风格
+          </li>
+          <li>
+            早期主要聚焦约会聊天，后根据使用反馈扩展到日常社交和职场沟通，提升适用范围
+          </li>
+          <li>
+            多轮迭代后，产品从“生成回复”进一步收敛为“分析状态 + 提供策略 +
+            解释理由”的决策辅助定位
+          </li>
         </ul>
       </Section>
 
       <Section icon="📱" title="移动端方向探索">
         <p>
-          这不是独立新项目，而是 EchoMate 在移动端场景下的形态延展。核心目标没有变化，仍然是帮助用户在真实聊天中更快判断现在该怎么回。
+          这不是独立新项目，而是 EchoMate
+          在移动端场景下的形态延展。核心目标没有变化，仍然是帮助用户在真实聊天中更快判断现在该怎么回。
         </p>
         <p>
-          我之所以补充 App 版本原型，是因为聊天辅助本身就是高频、即时、强上下文依赖的场景。相比网页，手机端更适合随时查看对话、获取建议并直接完成回复。
+          我之所以补充 App
+          版本原型，是因为聊天辅助本身就是高频、即时、强上下文依赖的场景。相比网页，手机端更适合随时查看对话、获取建议并直接完成回复。
         </p>
-        <p className="text-slate-300 font-medium">
-          查看移动端原型：
-          {" "}
+        <p className="text-slate-900 font-semibold">
+          查看移动端原型：{" "}
           <a
             href={mobilePrototypeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent/80 hover:text-accent transition-colors"
+            className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
           >
             EchoMate App Prototype
           </a>
@@ -246,7 +262,7 @@ export default function CaseEchoMate() {
           产品的关键不在“能生成什么”，而在“应该帮助用户做什么决策”。
         </p>
         <p>这让我在后续设计中更加关注：</p>
-        <ul className="list-disc list-inside space-y-1 text-slate-400">
+        <ul className="list-disc list-inside space-y-1 text-slate-600">
           <li>用户是否保留决策权</li>
           <li>AI 是否在增强而不是替代用户</li>
           <li>产品是否真正解决场景问题</li>
@@ -254,14 +270,14 @@ export default function CaseEchoMate() {
       </Section>
 
       <Section icon="📌" title="下一步优化方向">
-        <ul className="list-disc list-inside space-y-1 text-slate-400">
+        <ul className="list-disc list-inside space-y-1 text-slate-600">
           <li>个性化表达（基于用户历史风格）</li>
           <li>长期记忆（对话关系建模）</li>
           <li>插件化（接入聊天工具）</li>
           <li>更细粒度的语气控制</li>
           <li>继续验证移动端形态下的高频使用路径和建议触达效率</li>
         </ul>
-        <p className="text-slate-300 font-medium">
+        <p className="text-slate-900 font-semibold">
           EchoMate · Make every reply count.
         </p>
       </Section>

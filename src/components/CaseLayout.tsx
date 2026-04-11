@@ -36,7 +36,7 @@ export default function CaseLayout({
         {/* Back */}
         <Link
           to="/"
-          className="interactive-link inline-flex items-center gap-2 text-sm text-slate-500 hover:text-accent mb-10"
+          className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900 mb-10"
         >
           <ArrowLeft size={14} />
           返回首页
@@ -44,15 +44,17 @@ export default function CaseLayout({
 
         {/* Header */}
         <header className="mb-12">
-          <p className="text-sm font-mono text-accent/70 mb-3">{subtitle}</p>
-          <h1 className="text-4xl md:text-5xl font-semibold text-white mb-4 tracking-tight">
+          <p className="text-sm font-mono text-blue-600 mb-3 tracking-wide">
+            {subtitle}
+          </p>
+          <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-4 tracking-tight leading-[1.1]">
             {title}
           </h1>
           <div className="flex flex-wrap gap-2 mb-6">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-mono text-accent/60 bg-accent/5 rounded-full px-3 py-1"
+                className="interactive-chip inline-block text-xs font-mono text-blue-700 bg-blue-50 border border-blue-100/80 rounded-full px-3 py-1"
               >
                 {tag}
               </span>
@@ -66,7 +68,7 @@ export default function CaseLayout({
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="interactive-link inline-flex items-center gap-2 text-sm text-slate-300 hover:text-accent"
+                className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900"
               >
                 <Github size={15} /> 源代码
               </a>
@@ -76,29 +78,31 @@ export default function CaseLayout({
                 href={live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="interactive-link inline-flex items-center gap-2 text-sm text-slate-300 hover:text-accent"
+                className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900"
               >
                 <ExternalLink size={15} /> 在线体验
               </a>
             )}
           </div>
 
-          {/* TL;DR */}
-          <div className="rounded-lg border border-accent/10 bg-accent/[0.03] p-5">
-            <p className="text-xs font-mono text-accent/50 mb-2">TL;DR</p>
-            <p className="text-base text-slate-200 leading-7">{tldr}</p>
+          {/* TL;DR — vibrancy-style material */}
+          <div className="rounded-2xl border border-blue-200/40 bg-white/60 backdrop-blur-md p-5 card-shadow">
+            <p className="text-xs font-mono text-blue-600 mb-2 tracking-[0.15em]">
+              TL;DR
+            </p>
+            <p className="text-base text-slate-700 leading-relaxed">{tldr}</p>
           </div>
         </header>
 
         {/* Content */}
-        <div className="space-y-16">{children}</div>
+        <div className="space-y-20">{children}</div>
 
         {/* Navigation */}
-        <nav className="mt-20 pt-10 border-t border-white/5 flex justify-between">
+        <nav className="mt-20 pt-10 border-t border-gray-200 flex justify-between">
           {prev ? (
             <Link
               to={prev.to}
-              className="interactive-link text-sm text-slate-500 hover:text-accent"
+              className="interactive-link text-sm font-semibold text-blue-600 hover:text-slate-900"
             >
               ← {prev.label}
             </Link>
@@ -108,7 +112,7 @@ export default function CaseLayout({
           {next ? (
             <Link
               to={next.to}
-              className="interactive-link text-sm text-slate-500 hover:text-accent"
+              className="interactive-link text-sm font-semibold text-blue-600 hover:text-slate-900"
             >
               {next.label} →
             </Link>
@@ -130,11 +134,11 @@ interface SectionProps {
 export function Section({ icon, title, children }: SectionProps) {
   return (
     <section>
-      <h2 className="flex items-center gap-3 text-2xl md:text-[28px] font-semibold text-white mb-6 tracking-tight">
+      <h2 className="flex items-center gap-3 text-2xl md:text-[28px] font-semibold text-slate-900 mb-6 tracking-tight leading-snug">
         <span className="text-lg">{icon}</span>
         {title}
       </h2>
-      <div className="text-base text-slate-300 leading-7 space-y-4">
+      <div className="text-base text-slate-600 leading-relaxed space-y-4">
         {children}
       </div>
     </section>
@@ -157,25 +161,25 @@ export function Decision({
   rationale,
 }: DecisionProps) {
   return (
-    <div className="interactive-card rounded-lg border border-white/5 bg-white/[0.02] p-5 space-y-3 hover:border-accent/20 hover:bg-white/[0.03]">
-      <h4 className="text-base font-semibold text-slate-100">{title}</h4>
+    <div className="interactive-card card-shadow card-shadow-hover rounded-xl border border-gray-200/90 border-l-[3px] border-l-blue-600 bg-white pl-4 pr-5 py-5 space-y-3 hover:border-gray-200 hover:border-l-blue-600 hover:scale-[1.005]">
+      <h4 className="text-base font-semibold text-slate-900">{title}</h4>
       <div className="space-y-2 text-sm">
         <p>
-          <span className="text-accent/60 font-mono text-xs mr-2">问题</span>
-          <span className="text-slate-400">{problem}</span>
+          <span className="text-blue-600 font-mono text-xs mr-2">问题</span>
+          <span className="text-slate-600">{problem}</span>
         </p>
         <p>
-          <span className="text-accent/60 font-mono text-xs mr-2">决策</span>
-          <span className="text-slate-300">{decision}</span>
+          <span className="text-blue-600 font-mono text-xs mr-2">决策</span>
+          <span className="text-slate-700">{decision}</span>
         </p>
         <p>
-          <span className="text-accent/60 font-mono text-xs mr-2">权衡</span>
-          <span className="text-slate-400">{tradeoff}</span>
+          <span className="text-blue-600 font-mono text-xs mr-2">权衡</span>
+          <span className="text-slate-600">{tradeoff}</span>
         </p>
         {rationale && (
           <p>
-            <span className="text-accent/60 font-mono text-xs mr-2">依据</span>
-            <span className="text-slate-400">{rationale}</span>
+            <span className="text-blue-600 font-mono text-xs mr-2">依据</span>
+            <span className="text-slate-600">{rationale}</span>
           </p>
         )}
       </div>
