@@ -29,3 +29,5 @@ WuLi-AI.html
 
 # local-only WuLi case
 src/pages/CaseWuliAi.tsx
+
+.cursor/

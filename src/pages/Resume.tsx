@@ -127,7 +127,48 @@ export default function Resume() {
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
                   <h4 className="text-sm font-semibold text-slate-200">
-                    ProdMind AI —— 面向产品经理的 AI 决策工作台
+                    InsightFlow AI｜多 Agent 驱动的用户洞察与产品决策系统
+                  </h4>
+                  <span className="text-xs text-slate-500 font-mono shrink-0">2026.03 - 至今</span>
+                </div>
+                <div className="space-y-1 text-sm text-slate-500 mb-3">
+                  <p>角色：独立负责</p>
+                  <p>
+                    项目案例：{" "}
+                    <a
+                      href="https://wei-liping.github.io/personal-homepage/#/case/insightflow"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      wei-liping.github.io/personal-homepage/#/case/insightflow
+                    </a>
+                  </p>
+                  <p>
+                    GitHub：{" "}
+                    <a
+                      href="https://github.com/wei-liping/InsightFlow"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent/70 hover:text-accent transition-colors"
+                    >
+                      github.com/wei-liping/InsightFlow
+                    </a>
+                  </p>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
+                  <li>面向产品经理“拿到大量用户反馈却难以快速形成判断”的痛点，搭建从数据输入、洞察分析、优先级判断、PRD 草案到访谈验证的一体化产品工作台</li>
+                  <li>基于 LangGraph 设计多 Agent 协作流程，将痛点分析、主题分析、审查、合议、策略生成和 PRD 草拟拆分处理，提升长链路生成场景下的稳定性和可用性</li>
+                  <li>结合 RAG 分析链路，引入 ChromaDB、BM25 和共享反馈库，增强海量非结构化评论场景下的问题提炼、证据支撑与结果解释能力</li>
+                  <li>强化结果可追溯和人工校准能力：保留原始来源链接，支持关键节点人工复核后继续推进，方便复查、演示和后续产品决策落地</li>
+                  <li>在 ProdMind 的连续决策流程思路上继续做深，把“流程串联”推进到“证据支撑、结果可复核、判断可继续”的更完整形态</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-baseline justify-between mb-2 gap-4">
+                  <h4 className="text-sm font-semibold text-slate-200">
+                    ProdMind AI —— 面向产品经理的 AI 决策工作台探索
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">2026 - 至今</span>
                 </div>
@@ -157,9 +198,9 @@ export default function Resume() {
                   </p>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm text-slate-400 leading-relaxed">
-                  <li>围绕“洞察、方案、优先级、验证分散在不同工具中”的问题，设计连续任务链路</li>
-                  <li>将模糊输入拆解为“洞察提取 → 方案生成 → 优先级排序 → 用户验证 → 结果导出”的完整流程</li>
-                  <li>围绕结构化输出和流程连续性完成多轮迭代，并在扩展阶段明确合规边界</li>
+                  <li>围绕“洞察、方案、优先级、验证分散在不同工具中”的问题，先行验证连续任务链路是否成立</li>
+                  <li>将模糊输入拆解为“洞察提取 → 方案生成 → 优先级排序 → 用户验证 → 结果导出”的完整流程，建立后续产品决策工作台的基础框架</li>
+                  <li>围绕结构化输出和流程连续性完成多轮迭代，并在扩展阶段明确合规边界，也为后续 InsightFlow 的进一步深化提供方向</li>
                 </ul>
               </div>
 

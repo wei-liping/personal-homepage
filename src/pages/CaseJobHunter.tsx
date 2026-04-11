@@ -8,7 +8,7 @@ export default function CaseJobHunter() {
       tags={["AI 产品", "求职工作流", "本地优先", "Next.js", "Workflow"]}
       tldr="JobHunter AI 的核心不是再做一个会生成内容的工具，而是把找岗位、看 JD、改简历、生成开场白、模拟面试和内容沉淀放进同一套本地工作流里，让用户少在招聘网站、文档、聊天窗口和表格之间来回切换。"
       github="https://github.com/wei-liping/JobHunter"
-      next={{ to: "/case/prodmind", label: "ProdMind AI" }}
+      next={{ to: "/case/insightflow", label: "InsightFlow AI" }}
     >
       <Section icon="📌" title="项目概述（Overview）">
         <p>

@@ -9,7 +9,8 @@ export default function CaseProdMind() {
       tldr="ProdMind AI 是一个把 PM 碎片化工作串成完整决策流程的 AI 产品。它将用户洞察、PRD 生成、优先级排序与用户验证连接为一条流水线，帮助 PM 从“有想法”走到“可决策”。"
       github="https://github.com/wei-liping/ProdMind-AI"
       live="https://wei-liping.github.io/ProdMind-AI/"
-      prev={{ to: "/case/echomate", label: "EchoMate" }}
+      prev={{ to: "/case/insightflow", label: "InsightFlow AI" }}
+      next={{ to: "/case/echomate", label: "EchoMate" }}
     >
       <Section icon="📌" title="项目概述（Overview）">
         <p>
@@ -146,6 +147,7 @@ export default function CaseProdMind() {
         <ul className="list-disc list-inside space-y-1 text-slate-400">
           <li>围绕结构化输出和流程连续性完成多轮迭代，让每一步结果可直接进入下一步，而不是重新整理上下文</li>
           <li>在扩展阶段评估过接入平台评论抓取能力，希望进一步增强真实反馈输入</li>
+          <li>这套关于连续决策流程的探索，后来也继续延展成了更强调证据追溯和人工复核的 InsightFlow</li>
           <li>最终因合规风险暂未上线该能力，保留为后续优化方向，也进一步明确了产品边界和风险判断</li>
         </ul>
       </Section>

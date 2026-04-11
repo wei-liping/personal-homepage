@@ -19,7 +19,7 @@ export default function Landing() {
             <br />
             更关注用户真实问题、任务链路与人机协作，而不只是单点生成能力。
             <br />
-            当前公开项目聚焦 AI 求职工作台、PM 决策工作台与对话决策辅助产品。
+            当前公开项目覆盖 AI 求职工作台、用户洞察与产品决策工作台、PM 决策探索与对话决策辅助产品。
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
@@ -50,10 +50,17 @@ export default function Landing() {
               tags={["AI 产品", "求职工作流", "本地优先", "Workflow"]}
             />
             <ProjectCard
+              to="/case/insightflow"
+              title="InsightFlow AI"
+              subtitle="AI × 用户洞察与产品决策"
+              description="把用户反馈整理、洞察分析、优先级判断、PRD 草案和访谈验证串成同一条工作流，让产品判断更快形成，也更容易回看依据。"
+              tags={["AI", "用户洞察", "多 Agent", "决策工作流"]}
+            />
+            <ProjectCard
               to="/case/prodmind"
               title="ProdMind AI"
               subtitle="AI × PM Workflow"
-              description="面向产品经理的 AI 决策工作台。将洞察、方案、优先级与验证串成一条连续任务链，帮助用户从想法走到可决策。"
+              description="更早期的 PM 决策工作台探索。先把洞察、方案、优先级与验证串成连续任务链，为后续更完整的产品判断系统打下基础。"
               tags={["AI", "PM 工具", "Next.js", "Workflow"]}
             />
             <ProjectCard
@@ -62,13 +69,6 @@ export default function Landing() {
               subtitle="AI × 对话决策"
               description="不是替用户聊天，而是先分析对话状态，再提供策略和理由，帮助用户做出更合适的表达选择。"
               tags={["AI", "社交沟通", "Vue", "决策辅助"]}
-            />
-            <ProjectCard
-              title="To Be Continued"
-              subtitle="Next Case"
-              description="下一个项目还在整理中，等问题、路径和结果都足够清楚之后再公开。"
-              tags={["New Project", "In Progress"]}
-              comingSoon
             />
           </div>
         </section>
