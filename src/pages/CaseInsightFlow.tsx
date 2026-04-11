@@ -1,4 +1,12 @@
-import CaseLayout, { Section, Decision } from "../components/CaseLayout";
+import CaseLayout, {
+  Section,
+  Decision,
+  StarSummary,
+  CaseImageGallery,
+} from "../components/CaseLayout";
+
+const ex = (folder: string, name: string) =>
+  `${import.meta.env.BASE_URL}example-images/${folder}/${encodeURIComponent(name)}`;
 
 export default function CaseInsightFlow() {
   return (
@@ -6,38 +14,50 @@ export default function CaseInsightFlow() {
       title="InsightFlow AI — 多 Agent 驱动的用户洞察与产品决策系统"
       subtitle="Case Study #2"
       tags={["AI PM 工具", "多 Agent", "RAG", "Next.js", "决策工作流"]}
-      tldr="InsightFlow AI 面向“拿到大量用户反馈却难以快速形成判断”的真实痛点，把数据输入、洞察分析、优先级判断、PRD 草案、访谈验证和导出串成一条完整工作流，并尽量保留证据来源，帮助产品经理更快从反馈走到可执行决策。"
+      tldr="面向「反馈很多却难形成判断」：把输入、分析、优先级、PRD 与验证串成一条工作流；用多 Agent 稳住长链路，并尽量保留来源与复核点，让结论可解释、可继续。"
       github="https://github.com/wei-liping/InsightFlow"
       prev={{ to: "/case/jobhunter", label: "JobHunter AI" }}
       next={{ to: "/case/prodmind", label: "ProdMind AI" }}
     >
-      <Section icon="📌" title="项目概述（Overview）">
-        <p>
-          InsightFlow AI
-          是一个面向产品洞察与决策场景的工作台。它不只负责生成一份 PRD，
-          而是把原始反馈、分析过程、优先级判断、方案草拟和后续验证串在一起，让用户能从“信息很多”走到“判断更清楚”。
-        </p>
-        <p className="text-slate-900 font-semibold">
-          一句话：不是帮 PM 再写一份文档，而是帮 PM
-          把“反馈→洞察→取舍→验证”这条链路真正跑通。
-        </p>
+      <Section icon="📋" title="一页看懂（背景 → 挑战 → 行动 → 结果）">
+        <StarSummary
+          context="海量反馈散落在各渠道，PM 需要尽快从噪声里抽出可行动判断。"
+          challenge="长链路一次性生成易漂移；若缺少来源与复核，结果难拿去评审或落地。"
+          action="多 Agent 拆分步骤；结合检索与共享反馈库；关键节点支持人工校准后再推进。"
+          outcome="可运行工作台打通采集到导出；强调证据可追溯与过程可继续，降低黑盒感。"
+        />
       </Section>
 
-      <Section icon="⚡" title="快速看懂（Quick Scan）">
-        <ul className="list-disc list-inside space-y-1 text-slate-600">
-          <li>
-            目标用户：需要快速整理海量用户反馈、形成判断并推进方案的产品经理
-          </li>
-          <li>
-            核心问题：反馈很多，但从分析到优先级、PRD 和验证经常分散在多个工具里
-          </li>
-          <li>
-            我的工作：独立完成问题定义、工作流设计、产品实现、迭代优化与公开版整理
-          </li>
-          <li>
-            当前结果：完成可运行工作台，已支持数据输入、采集、分析、策略、PRD、访谈模拟和导出
-          </li>
-        </ul>
+      <Section icon="🖼️" title="关键界面与流程">
+        <CaseImageGallery
+          images={[
+            {
+              src: ex("insightflow", "1首页.png"),
+              alt: "InsightFlow 首页与项目入口",
+              caption: "首页：进入洞察与决策工作流的入口。",
+            },
+            {
+              src: ex("insightflow", "3智能分析.png"),
+              alt: "智能分析界面",
+              caption: "智能分析：多步骤分析与协作流程。",
+            },
+            {
+              src: ex("insightflow", "5PRD总览.png"),
+              alt: "PRD 总览",
+              caption: "PRD 总览：从洞察推进到方案与文档结构。",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section icon="📌" title="项目概述（Overview）">
+        <p>
+          InsightFlow AI 面向洞察与决策：不只产出
+          PRD，而是把原始反馈、分析过程、优先级、方案草拟与验证串在一起，从「信息很多」推进到「判断更清楚」。
+        </p>
+        <p className="text-slate-900 font-semibold">
+          一句话：帮 PM 把「反馈→洞察→取舍→验证」这条链路跑通。
+        </p>
       </Section>
 
       <Section icon="🎯" title="Problem（用户问题）">

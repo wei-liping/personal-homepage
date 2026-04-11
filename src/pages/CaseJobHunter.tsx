@@ -1,4 +1,12 @@
-import CaseLayout, { Section, Decision } from "../components/CaseLayout";
+import CaseLayout, {
+  Section,
+  Decision,
+  StarSummary,
+  CaseImageGallery,
+} from "../components/CaseLayout";
+
+const ex = (folder: string, name: string) =>
+  `${import.meta.env.BASE_URL}example-images/${folder}/${encodeURIComponent(name)}`;
 
 export default function CaseJobHunter() {
   return (
@@ -6,34 +14,49 @@ export default function CaseJobHunter() {
       title="JobHunter AI — 一个把求职链路接起来的本地工作台"
       subtitle="Case Study #1"
       tags={["AI 产品", "求职工作流", "本地优先", "Next.js", "Workflow"]}
-      tldr="JobHunter AI 的核心不是再做一个会生成内容的工具，而是把找岗位、看 JD、改简历、生成开场白、模拟面试和内容沉淀放进同一套本地工作流里，让用户少在招聘网站、文档、聊天窗口和表格之间来回切换。"
+      tldr="把找岗、看 JD、改简历、开场白、模拟面试与沉淀放进同一套本地工作流，减少跨站、文档与表格的反复搬运，让一条求职链路能走完、能复盘。"
       github="https://github.com/wei-liping/JobHunter"
       next={{ to: "/case/insightflow", label: "InsightFlow AI" }}
     >
+      <Section icon="📋" title="一页看懂（背景 → 挑战 → 行动 → 结果）">
+        <StarSummary
+          context="求职者在招聘站、文档与笔记之间切换，岗位上下文与简历版本难以沿同一条路径传递。"
+          challenge="单点「生成」接不住多步骤求职；若岗位来源仍靠手工录入，后续链路再顺也会很重。"
+          action="拆成岗位探索、简历优化、模拟面试、内容管理四栏；岗位探索优先接本机 BOSS 搜索，关键资产在本地沉淀。"
+          outcome="形成可运行的本地工作台与可演示主路径：看岗—改简历—练习—沉淀，验证 AI 更适合承接任务链而非单次生成。"
+        />
+      </Section>
+
+      <Section icon="🖼️" title="关键界面与流程">
+        <CaseImageGallery
+          images={[
+            {
+              src: ex("jobhunter", "首页.png"),
+              alt: "JobHunter 工作台首页与四栏入口",
+              caption: "首页：岗位探索、简历优化、模拟面试、内容管理入口。",
+            },
+            {
+              src: ex("jobhunter", "岗位探索.png"),
+              alt: "岗位探索界面",
+              caption: "岗位探索：围绕岗位上下文推进后续改简历与练习。",
+            },
+            {
+              src: ex("jobhunter", "内容管理.png"),
+              alt: "内容管理与沉淀",
+              caption: "内容管理：关键资产在本地沉淀与复盘。",
+            },
+          ]}
+        />
+      </Section>
+
       <Section icon="📌" title="项目概述（Overview）">
         <p>
           JobHunter AI
-          是一个面向真实求职流程的本地工作台。它不把所有能力都堆在一个页面里，而是拆成岗位探索、简历优化、模拟面试和内容管理四个独立栏目，让用户围绕一个岗位逐步完成判断、改写、练习和沉淀。
+          是面向真实求职流程的本地工作台：用四个栏目承接不同阶段任务，让用户围绕同一岗位完成判断、改写、练习与沉淀，而不是把所有能力堆在一页里。
         </p>
         <p className="text-slate-900 font-semibold">
           一句话：不是“帮你生成一份内容”，而是“帮你把一次真实求职流程走完”。
         </p>
-      </Section>
-
-      <Section icon="⚡" title="快速看懂（Quick Scan）">
-        <ul className="list-disc list-inside space-y-1 text-slate-600">
-          <li>目标用户：需要高频看岗、快速判断匹配度并持续迭代简历的求职者</li>
-          <li>
-            核心问题：岗位、简历、投递记录和面试准备长期分散在不同工具里，求职链路容易断
-          </li>
-          <li>
-            我的工作：独立完成问题定义、信息架构、交互设计、产品实现与公开版整理
-          </li>
-          <li>
-            当前结果：形成可运行的四栏工作台，已支持本机 BOSS
-            搜索、简历优化、文本模拟面试和内容沉淀
-          </li>
-        </ul>
       </Section>
 
       <Section icon="🎯" title="Problem（用户问题）">

@@ -31,3 +31,6 @@ WuLi-AI.html
 src/pages/CaseWuliAi.tsx
 
 .cursor/
+
+# Demo videos over GitHub's 100MB single-file limit — keep locally, do not commit
+public/example-images/**/*.mov

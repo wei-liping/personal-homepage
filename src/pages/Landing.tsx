@@ -13,32 +13,34 @@ export default function Landing() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 leading-[1.08] tracking-tight">
               韦莉萍
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 max-w-2xl leading-relaxed mb-4 font-medium">
+            <p className="text-xl md:text-2xl text-slate-800 max-w-2xl leading-relaxed mb-3 font-semibold">
+              用 AI 把复杂任务拆成能走完的流程，让人保留判断权。
+            </p>
+            <p className="text-lg text-slate-600 max-w-2xl leading-relaxed mb-2">
               AI 产品经理 / AI Agent 方向 ·
-              <span className="text-blue-600 font-semibold">
-                {" "}
-                擅长把真实问题拆成可执行流程
-              </span>
+              独立负责从问题定义到上线展示的全链路。
             </p>
             <p className="text-base text-slate-600 max-w-2xl leading-relaxed">
-              具备一线教学经验与独立产品实践，持续围绕决策辅助、效率工具与人机协作场景设计
-              AI 产品。
-              <br />
-              更关注用户真实问题、任务链路与人机协作，而不只是单点生成能力。
-              <br />
-              当前公开项目覆盖 AI 求职工作台、用户洞察与产品决策工作台、PM
-              决策探索与对话决策辅助产品。
+              我关注真实场景里的卡点、任务链路与可复盘依据，而不是单点生成。下面三个项目分别覆盖
+              求职工作流、用户洞察与决策、对话决策辅助；另有早期 PM
+              工作台探索可作为脉络补充。
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 to="/resume"
-                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_1px_2px_rgba(37,99,235,0.35),0_4px_12px_rgba(37,99,235,0.25)] hover:bg-blue-700 hover:shadow-[0_2px_4px_rgba(37,99,235,0.4),0_8px_20px_rgba(37,99,235,0.2)] transition-colors"
+                className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_1px_2px_rgba(37,99,235,0.35),0_4px_12px_rgba(37,99,235,0.25)] hover:bg-blue-700 hover:shadow-[0_2px_4px_rgba(37,99,235,0.4),0_8px_20px_rgba(37,99,235,0.2)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 focus-visible:ring-offset-2"
               >
                 查看简历
               </Link>
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-900 card-shadow hover:border-blue-200 hover:bg-white hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2"
+              >
+                关于我
+              </Link>
               <a
                 href="mailto:weilipng@zju.edu.cn"
-                className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-900 card-shadow hover:border-blue-200 hover:bg-white hover:text-blue-600 transition-colors"
+                className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white/80 px-5 py-2.5 text-sm font-semibold text-slate-900 card-shadow hover:border-blue-200 hover:bg-white hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2"
               >
                 联系我
               </a>
@@ -46,38 +48,66 @@ export default function Landing() {
           </section>
         </div>
 
-        <section>
-          <h2 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-8">
+        <section className="mb-14">
+          <h2 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-3">
             精选项目
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <p className="text-sm text-slate-500 mb-8 max-w-2xl leading-relaxed">
+            每个案例均含背景—挑战—行动—结果叙事；完整图文见案例页（可替换为你的产品截图）。
+          </p>
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mb-10">
             <ProjectCard
               to="/case/jobhunter"
               title="JobHunter AI"
               subtitle="AI × 求职工作台"
-              description="把找岗位、看 JD、改简历、生成开场白、模拟面试和内容沉淀放进同一套本地工作流里，减少在多个工具之间反复切换。"
-              tags={["AI 产品", "求职工作流", "本地优先", "Workflow"]}
+              featured
+              story={[
+                "求职动作分散在招聘站、文档和笔记里，岗位与简历上下文难以在同一条链路里传递。",
+                "将产品拆为岗位探索、简历优化、模拟面试、内容管理四栏，并接入本机 BOSS 搜索与本地沉淀。",
+                "形成可运行的本地工作台闭环，可演示从看岗到沉淀复盘的主路径。",
+              ]}
+              tags={["Next.js", "本地优先", "Workflow"]}
+              outcomes={["多步链路", "上下文传递", "可演示闭环"]}
             />
             <ProjectCard
               to="/case/insightflow"
               title="InsightFlow AI"
-              subtitle="AI × 用户洞察与产品决策"
-              description="把用户反馈整理、洞察分析、优先级判断、PRD 草案和访谈验证串成同一条工作流，让产品判断更快形成，也更容易回看依据。"
-              tags={["AI", "用户洞察", "多 Agent", "决策工作流"]}
-            />
-            <ProjectCard
-              to="/case/prodmind"
-              title="ProdMind AI"
-              subtitle="AI × PM Workflow"
-              description="更早期的 PM 决策工作台探索。先把洞察、方案、优先级与验证串成连续任务链，为后续更完整的产品判断系统打下基础。"
-              tags={["AI", "PM 工具", "Next.js", "Workflow"]}
+              subtitle="AI × 洞察与决策"
+              featured
+              story={[
+                "反馈量大且分散，从洞察到优先级、PRD 与验证常断在多工具之间，结论难复核。",
+                "用多 Agent 拆分长链路，结合检索与共享反馈库，并保留来源与关键节点人工复核。",
+                "可运行工作台打通输入到导出，强调证据可追溯与过程可继续。",
+              ]}
+              tags={["多 Agent", "RAG", "Next.js"]}
+              outcomes={["证据可追溯", "长链路稳定", "可复核"]}
             />
             <ProjectCard
               to="/case/echomate"
               title="EchoMate"
               subtitle="AI × 对话决策"
-              description="不是替用户聊天，而是先分析对话状态，再提供策略和理由，帮助用户做出更合适的表达选择。"
-              tags={["AI", "社交沟通", "Vue", "决策辅助"]}
+              featured
+              story={[
+                "用户缺的不是一句话术，而是对对话状态与下一步策略的判断。",
+                "做「状态分析 → 多策略 → 理由解释」的决策辅助，不替用户说话。",
+                "可运行产品已上线展示，经真实试用迭代并扩展职场等场景。",
+              ]}
+              tags={["Vue 3", "决策辅助", "已上线"]}
+              outcomes={["保留表达权", "可解释", "可迭代"]}
+            />
+          </div>
+
+          <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
+            早期探索
+          </h3>
+          <div className="max-w-xl">
+            <ProjectCard
+              to="/case/prodmind"
+              title="ProdMind AI"
+              subtitle="AI × PM Workflow（早期）"
+              description="在连续决策流程上的先行验证：洞察、方案、优先级与验证串成一条流水线，为 InsightFlow 等后续方向提供框架基础。"
+              tags={["Next.js", "工作流", "RICE"]}
+              outcomes={["流程串联", "结构化输出"]}
             />
           </div>
         </section>

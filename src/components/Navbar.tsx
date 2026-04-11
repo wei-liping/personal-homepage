@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           to="/"
-          className="interactive-link font-mono text-base font-semibold text-blue-600 hover:text-slate-900"
+          className="interactive-link font-mono text-base font-semibold text-blue-600 hover:text-slate-900 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2"
         >
           韦莉萍.pm
         </Link>
@@ -30,7 +30,7 @@ export default function Navbar() {
               <Link
                 key={l.to}
                 to={l.to}
-                className={`interactive-link flex flex-col items-center gap-1.5 text-base font-semibold min-h-11 justify-end pb-0.5 ${
+                className={`interactive-link flex flex-col items-center gap-1.5 text-base font-semibold min-h-11 justify-end pb-0.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 ${
                   active
                     ? "text-blue-600"
                     : "text-slate-600 hover:text-slate-900"
@@ -70,7 +70,7 @@ export default function Navbar() {
                   key={l.to}
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className={`interactive-link flex items-center gap-3 text-base font-semibold min-h-11 px-2 rounded-lg ${
+                  className={`interactive-link flex items-center gap-3 text-base font-semibold min-h-11 px-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 ${
                     active
                       ? "text-blue-600 bg-blue-50/80"
                       : "text-slate-600 hover:text-slate-900 hover:bg-gray-50"

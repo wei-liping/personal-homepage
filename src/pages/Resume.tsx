@@ -72,7 +72,8 @@ export default function Resume() {
               个人简介
             </h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              浙江大学物理学硕士，具备一线教学经验与独立产品实践。擅长从真实用户问题中提炼需求，将复杂任务拆解为连续流程，设计“分析、判断、执行、反馈”的产品链路，并通过多轮迭代持续优化产品可用性。
+              浙江大学物理学硕士；具备一线教学与独立 AI
+              产品实践。习惯从场景卡点出发，把复杂任务拆成可走完的流程，并关注证据、可复核与迭代，而不是单点生成功能堆砌。
             </p>
           </section>
 
@@ -121,23 +122,22 @@ export default function Resume() {
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
-                    面向求职过程中“找岗位、看
-                    JD、改简历、写开场白、模拟面试、内容沉淀分散在不同工具中”的问题，识别出核心矛盾不是缺少单点功能，而是整条求职链路容易断裂
+                    <span className="font-medium text-slate-700">背景：</span>
+                    求职动作分散在招聘站、文档与笔记中，岗位与简历上下文难在同一路径延续。
                   </li>
                   <li>
-                    将产品设计为“首页导航 + 岗位探索 + 简历优化 + 模拟面试 +
-                    内容管理”四栏结构，让不同任务各自聚焦，同时保持岗位、简历与记录在同一系统内持续传递
+                    <span className="font-medium text-slate-700">挑战：</span>
+                    单点生成无法承接「看岗—改简历—练习—沉淀」的多步链路。
                   </li>
                   <li>
-                    在岗位探索中接入本机 BOSS
-                    搜索，使产品入口更贴近真实找岗行为；在简历优化中围绕目标岗位提供评估、润色与开场白生成；在模拟面试中继续复用岗位和简历上下文，增强练习针对性
+                    <span className="font-medium text-slate-700">行动：</span>
+                    四栏信息架构（岗位探索 / 简历优化 / 模拟面试 /
+                    内容管理），接入本机 BOSS 搜索，关键记录本地沉淀。
                   </li>
                   <li>
-                    将内容管理作为正式模块沉淀岗位、简历版本、投递记录、面试记录与复盘内容，减少重复整理与信息丢失
-                  </li>
-                  <li>
-                    完成可运行产品并形成清晰的本地工作流闭环，验证了“AI
-                    更适合接住多步骤任务链，而不是只负责单次生成”的产品方向
+                    <span className="font-medium text-slate-700">结果：</span>
+                    可运行本地工作台与可演示主路径，验证 AI
+                    更适合承接任务链而非单次生成。
                   </li>
                 </ul>
               </div>
@@ -145,7 +145,7 @@ export default function Resume() {
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
                   <h4 className="text-sm font-semibold text-slate-900">
-                    InsightFlow AI｜多 Agent 驱动的用户洞察与产品决策系统
+                    InsightFlow AI｜多 Agent 用户洞察与产品决策系统
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">
                     2026.03 - 至今
@@ -178,24 +178,22 @@ export default function Resume() {
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
-                    面向产品经理“拿到大量用户反馈却难以快速形成判断”的痛点，搭建从数据输入、洞察分析、优先级判断、PRD
-                    草案到访谈验证的一体化产品工作台
+                    <span className="font-medium text-slate-700">背景：</span>
+                    反馈体量大且分散，从洞察到优先级、PRD
+                    与验证常断在多工具之间。
                   </li>
                   <li>
-                    基于 LangGraph 设计多 Agent
-                    协作流程，将痛点分析、主题分析、审查、合议、策略生成和 PRD
-                    草拟拆分处理，提升长链路生成场景下的稳定性和可用性
+                    <span className="font-medium text-slate-700">挑战：</span>
+                    长链路单次生成易漂移；缺来源与复核时结论难进评审。
                   </li>
                   <li>
-                    结合 RAG 分析链路，引入 ChromaDB、BM25
-                    和共享反馈库，增强海量非结构化评论场景下的问题提炼、证据支撑与结果解释能力
+                    <span className="font-medium text-slate-700">行动：</span>
+                    基于 LangGraph 多 Agent 拆分步骤；RAG
+                    与共享反馈库支撑证据；关键节点支持人工校准后继续。
                   </li>
                   <li>
-                    强化结果可追溯和人工校准能力：保留原始来源链接，支持关键节点人工复核后继续推进，方便复查、演示和后续产品决策落地
-                  </li>
-                  <li>
-                    在 ProdMind
-                    的连续决策流程思路上继续做深，把“流程串联”推进到“证据支撑、结果可复核、判断可继续”的更完整形态
+                    <span className="font-medium text-slate-700">结果：</span>
+                    可运行工作台打通采集到导出，强调可追溯与「判断可继续」。
                   </li>
                 </ul>
               </div>
@@ -203,56 +201,7 @@ export default function Resume() {
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
                   <h4 className="text-sm font-semibold text-slate-900">
-                    ProdMind AI —— 面向产品经理的 AI 决策工作台探索
-                  </h4>
-                  <span className="text-xs text-slate-500 font-mono shrink-0">
-                    2026 - 至今
-                  </span>
-                </div>
-                <div className="space-y-1 text-sm text-slate-500 mb-3">
-                  <p>角色：独立负责</p>
-                  <p>
-                    项目案例：{" "}
-                    <a
-                      href="https://wei-liping.github.io/personal-homepage/#/case/prodmind"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      wei-liping.github.io/personal-homepage/#/case/prodmind
-                    </a>
-                  </p>
-                  <p>
-                    GitHub：{" "}
-                    <a
-                      href="https://github.com/wei-liping/ProdMind-AI"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      github.com/wei-liping/ProdMind-AI
-                    </a>
-                  </p>
-                </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
-                  <li>
-                    围绕“洞察、方案、优先级、验证分散在不同工具中”的问题，先行验证连续任务链路是否成立
-                  </li>
-                  <li>
-                    将模糊输入拆解为“洞察提取 → 方案生成 → 优先级排序 → 用户验证
-                    → 结果导出”的完整流程，建立后续产品决策工作台的基础框架
-                  </li>
-                  <li>
-                    围绕结构化输出和流程连续性完成多轮迭代，并在扩展阶段明确合规边界，也为后续
-                    InsightFlow 的进一步深化提供方向
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-900">
-                    EchoMate —— AI 社交对话决策工具
+                    EchoMate｜AI 对话决策辅助工具
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">
                     2026 - 至今
@@ -285,15 +234,76 @@ export default function Resume() {
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
-                    将产品定位为“对话决策辅助工具”，设计“状态分析 → 策略建议 →
-                    理由解释”的核心链路
+                    <span className="font-medium text-slate-700">背景：</span>
+                    用户更需要「策略与阶段判断」，而非一句话术生成。
                   </li>
                   <li>
-                    不是替用户生成一句回复，而是帮助用户理解对话状态并做出更合适的表达选择
+                    <span className="font-medium text-slate-700">挑战：</span>
+                    直接生成回复会绕过判断，难以形成可迁移的沟通方法。
                   </li>
                   <li>
-                    基于真实用户反馈完成多轮迭代，新增 MBTI
-                    维度，并将场景扩展到职场沟通
+                    <span className="font-medium text-slate-700">行动：</span>
+                    设计「状态分析 → 多策略 →
+                    理由解释」链路；产品已公开展示并可访问。
+                  </li>
+                  <li>
+                    <span className="font-medium text-slate-700">结果：</span>
+                    经试用迭代扩展场景与维度（如沟通风格），强化决策辅助定位。
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-baseline justify-between mb-2 gap-4">
+                  <h4 className="text-sm font-semibold text-slate-900">
+                    ProdMind AI｜PM 决策工作台探索（早期）
+                  </h4>
+                  <span className="text-xs text-slate-500 font-mono shrink-0">
+                    2026 - 至今
+                  </span>
+                </div>
+                <div className="space-y-1 text-sm text-slate-500 mb-3">
+                  <p>角色：独立负责</p>
+                  <p>
+                    项目案例：{" "}
+                    <a
+                      href="https://wei-liping.github.io/personal-homepage/#/case/prodmind"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
+                    >
+                      wei-liping.github.io/personal-homepage/#/case/prodmind
+                    </a>
+                  </p>
+                  <p>
+                    GitHub：{" "}
+                    <a
+                      href="https://github.com/wei-liping/ProdMind-AI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
+                    >
+                      github.com/wei-liping/ProdMind-AI
+                    </a>
+                  </p>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
+                  <li>
+                    <span className="font-medium text-slate-700">背景：</span>
+                    洞察、方案、优先级与验证分散，决策链路易断。
+                  </li>
+                  <li>
+                    <span className="font-medium text-slate-700">挑战：</span>
+                    自由长文难用于评审；需验证「连续流程」是否成立。
+                  </li>
+                  <li>
+                    <span className="font-medium text-slate-700">行动：</span>
+                    引导式流水线 + 结构化输出（痛点、Persona、RICE 等）+
+                    验证前置。
+                  </li>
+                  <li>
+                    <span className="font-medium text-slate-700">结果：</span>
+                    跑通从输入到导出，为 InsightFlow 等后续方向提供框架基础。
                   </li>
                 </ul>
               </div>

@@ -39,6 +39,34 @@ export default function About() {
           </p>
         </div>
 
+        <div className="mt-12 rounded-2xl border border-gray-200/90 bg-white p-6 card-shadow">
+          <h2 className="text-sm font-semibold text-slate-900 mb-4">
+            我如何做产品判断
+          </h2>
+          <ul className="space-y-3 text-sm text-slate-600 leading-relaxed list-disc list-inside">
+            <li>
+              <span className="font-medium text-slate-800">
+                先找可验证的卡点：
+              </span>
+              从具体场景里谁在什么步骤卡住出发，而不是从「要不要上一个 AI
+              功能」出发。
+            </li>
+            <li>
+              <span className="font-medium text-slate-800">再画任务链：</span>
+              把用户目标拆成连续步骤，标出信息在哪里断、决策在哪里返工，再决定产品该接哪一段。
+            </li>
+            <li>
+              <span className="font-medium text-slate-800">人机分工：</span>
+              默认让人保留判断权；AI
+              负责压缩整理、给出选项与依据，而不是替用户一次性拍板。
+            </li>
+            <li>
+              <span className="font-medium text-slate-800">迭代闭环：</span>
+              用可演示、可复盘的结果推动下一版取舍；案例页里的项目我尽量按同一套叙事呈现，方便对照。
+            </li>
+          </ul>
+        </div>
+
         {/* Skills */}
         <div className="mt-12">
           <h2 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-6">

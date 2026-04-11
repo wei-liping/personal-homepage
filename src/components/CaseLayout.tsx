@@ -2,6 +2,84 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 
+export interface CaseGalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+/** 1–3 张图自适应栅格；截图放入 public/example-images/ 后替换 src */
+export function CaseImageGallery({ images }: { images: CaseGalleryImage[] }) {
+  if (images.length === 0) return null;
+  const gridClass =
+    images.length === 1
+      ? "grid-cols-1 max-w-2xl"
+      : images.length === 2
+        ? "grid-cols-1 sm:grid-cols-2"
+        : "grid-cols-1 sm:grid-cols-3";
+
+  return (
+    <div className={`grid gap-4 ${gridClass}`}>
+      {images.map((img, i) => (
+        <figure
+          key={`${img.src}-${i}`}
+          className="rounded-xl border border-gray-200/90 bg-white overflow-hidden card-shadow"
+        >
+          <div className="aspect-video bg-slate-100 flex items-center justify-center">
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-full object-contain"
+              loading="lazy"
+            />
+          </div>
+          {img.caption ? (
+            <figcaption className="text-xs text-slate-500 px-3 py-2.5 border-t border-gray-100 leading-relaxed">
+              {img.caption}
+            </figcaption>
+          ) : null}
+        </figure>
+      ))}
+    </div>
+  );
+}
+
+export interface StarSummaryProps {
+  context: string;
+  challenge: string;
+  action: string;
+  outcome: string;
+}
+
+export function StarSummary({
+  context,
+  challenge,
+  action,
+  outcome,
+}: StarSummaryProps) {
+  const cells: { label: string; text: string }[] = [
+    { label: "背景", text: context },
+    { label: "挑战", text: challenge },
+    { label: "关键动作", text: action },
+    { label: "结果", text: outcome },
+  ];
+  return (
+    <div className="grid sm:grid-cols-2 gap-3">
+      {cells.map(({ label, text }) => (
+        <div
+          key={label}
+          className="rounded-xl border border-gray-200/90 bg-white/80 p-4 card-shadow"
+        >
+          <p className="text-xs font-mono text-blue-600 tracking-wide mb-2">
+            {label}
+          </p>
+          <p className="text-sm text-slate-700 leading-relaxed">{text}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 interface CaseNav {
   to: string;
   label: string;
@@ -36,7 +114,7 @@ export default function CaseLayout({
         {/* Back */}
         <Link
           to="/"
-          className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900 mb-10"
+          className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900 mb-10 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2"
         >
           <ArrowLeft size={14} />
           返回首页
@@ -68,7 +146,7 @@ export default function CaseLayout({
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900"
+                className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2"
               >
                 <Github size={15} /> 源代码
               </a>
@@ -78,7 +156,7 @@ export default function CaseLayout({
                 href={live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900"
+                className="interactive-link inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-slate-900 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2"
               >
                 <ExternalLink size={15} /> 在线体验
               </a>
@@ -102,7 +180,7 @@ export default function CaseLayout({
           {prev ? (
             <Link
               to={prev.to}
-              className="interactive-link text-sm font-semibold text-blue-600 hover:text-slate-900"
+              className="interactive-link text-sm font-semibold text-blue-600 hover:text-slate-900 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 px-1 -mx-1"
             >
               ← {prev.label}
             </Link>
@@ -112,7 +190,7 @@ export default function CaseLayout({
           {next ? (
             <Link
               to={next.to}
-              className="interactive-link text-sm font-semibold text-blue-600 hover:text-slate-900"
+              className="interactive-link text-sm font-semibold text-blue-600 hover:text-slate-900 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 px-1 -mx-1"
             >
               {next.label} →
             </Link>

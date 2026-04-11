@@ -1,4 +1,12 @@
-import CaseLayout, { Section, Decision } from "../components/CaseLayout";
+import CaseLayout, {
+  Section,
+  Decision,
+  StarSummary,
+  CaseImageGallery,
+} from "../components/CaseLayout";
+
+const ex = (folder: string, name: string) =>
+  `${import.meta.env.BASE_URL}example-images/${folder}/${encodeURIComponent(name)}`;
 
 export default function CaseEchoMate() {
   const mobilePrototypeUrl = `${import.meta.env.BASE_URL}prototypes/echomate-mobile.html`;
@@ -8,37 +16,50 @@ export default function CaseEchoMate() {
       title="EchoMate — AI 对话辅助产品案例"
       subtitle="Case Study #4"
       tags={["AI 对话辅助", "社交场景", "Vue 3", "Vite", "决策支持"]}
-      tldr="EchoMate 是一个帮助用户“把话说得更好”的 AI 对话决策工具。它不替用户说话，而是通过对话状态分析、策略生成与理由解释，帮助用户做出更合适的表达选择。"
+      tldr="帮助用户「把话说得更好」的对话决策工具：先做状态分析与策略，再给理由；不替用户说话，保留表达主动权。已上线可体验，并经试用迭代扩展场景。"
       github="https://github.com/wei-liping/EchoMate"
       live="https://wei-liping.github.io/EchoMate/"
       prev={{ to: "/case/prodmind", label: "ProdMind AI" }}
     >
+      <Section icon="📋" title="一页看懂（背景 → 挑战 → 行动 → 结果）">
+        <StarSummary
+          context="社交与职场沟通里，用户常卡在「该不该回、怎么回、语气与节奏」而非缺一句话术。"
+          challenge="通用生成工具给单句答案，难支撑对关系与对话阶段的判断。"
+          action="产品定位为决策辅助：状态分析 → 多策略与理由解释；结构化推理再生成。"
+          outcome="Vue 3 可运行产品已公开展示；经真实试用迭代（如沟通风格维度与场景扩展）。"
+        />
+      </Section>
+
+      <Section icon="🖼️" title="关键界面与流程">
+        <CaseImageGallery
+          images={[
+            {
+              src: ex("echomate", "1首页.png"),
+              alt: "EchoMate 首页",
+              caption: "首页：进入对话辅助主流程。",
+            },
+            {
+              src: ex("echomate", "2输入内容.png"),
+              alt: "输入待分析内容",
+              caption: "输入内容：提交当前对话或场景供分析。",
+            },
+            {
+              src: ex("echomate", "3分析结果_C对话建议.png"),
+              alt: "分析结果与对话建议",
+              caption: "分析结果：策略与对话建议（决策辅助，不替用户说话）。",
+            },
+          ]}
+        />
+      </Section>
+
       <Section icon="📌" title="项目概述">
         <p>
-          EchoMate 是一个面向社交场景的 AI
-          对话辅助产品。它不直接替用户生成回复，
-          而是通过分析对话状态，提供多种回复策略与决策依据，帮助用户做出更合适的表达选择。
+          EchoMate
+          面向社交与职场沟通：不直接生成一句回复，而通过对话状态分析、策略与理由，帮助用户做更合适的表达选择。
         </p>
         <p className="text-slate-900 font-semibold">
           核心定位：AI 不替用户说话，而是帮助用户更好地表达自己。
         </p>
-      </Section>
-
-      <Section icon="⚡" title="快速看懂（Quick Scan）">
-        <ul className="list-disc list-inside space-y-1 text-slate-600">
-          <li>
-            目标用户：在社交或职场沟通中需要判断如何回复、是否推进关系的用户
-          </li>
-          <li>
-            核心问题：用户缺的不是一句话术，而是对对话状态和下一步策略的判断
-          </li>
-          <li>
-            我的工作：独立完成问题定义、产品定位、交互链路设计、迭代优化和上线展示
-          </li>
-          <li>
-            当前结果：完成可运行产品，已在真实用户试用中获得反馈并持续迭代
-          </li>
-        </ul>
       </Section>
 
       <Section icon="🎯" title="Problem：用户真正的聊天难点">

@@ -1,4 +1,12 @@
-import CaseLayout, { Section, Decision } from "../components/CaseLayout";
+import CaseLayout, {
+  Section,
+  Decision,
+  StarSummary,
+  CaseImageGallery,
+} from "../components/CaseLayout";
+
+const ex = (folder: string, name: string) =>
+  `${import.meta.env.BASE_URL}example-images/${folder}/${encodeURIComponent(name)}`;
 
 export default function CaseProdMind() {
   return (
@@ -6,33 +14,51 @@ export default function CaseProdMind() {
       title="ProdMind AI — 像产品经理一样思考的 AI Copilot"
       subtitle="Case Study #3"
       tags={["AI PM 工具", "工作流", "Next.js", "RICE", "结构化决策"]}
-      tldr="ProdMind AI 是一个把 PM 碎片化工作串成完整决策流程的 AI 产品。它将用户洞察、PRD 生成、优先级排序与用户验证连接为一条流水线，帮助 PM 从“有想法”走到“可决策”。"
+      tldr="把 PM 碎片工作串成一条流水线：洞察、PRD、优先级与验证前后衔接，输出结构化卡片与导出；为后续更重证据与多 Agent 的方向提供早期验证。"
       github="https://github.com/wei-liping/ProdMind-AI"
       live="https://wei-liping.github.io/ProdMind-AI/"
       prev={{ to: "/case/insightflow", label: "InsightFlow AI" }}
       next={{ to: "/case/echomate", label: "EchoMate" }}
     >
-      <Section icon="📌" title="项目概述（Overview）">
-        <p>
-          ProdMind AI 是一个面向产品经理的 AI
-          工作台，帮助用户把模糊想法与零散反馈转化为结构化产品决策。
-        </p>
-        <p className="text-slate-900 font-semibold">
-          一句话：一个帮助 PM 把“洞察→方案→取舍→验证”串联起来的 AI 决策产品。
-        </p>
+      <Section icon="📋" title="一页看懂（背景 → 挑战 → 行动 → 结果）">
+        <StarSummary
+          context="PM 不缺单点工具，缺的是跨工具仍能连贯推进的决策路径。"
+          challenge="自由长文难进评审；若步骤之间上下文断裂，优先级与洞察容易脱节。"
+          action="引导式流水线 + 结构化输出（痛点、Persona、RICE 等）+ 验证前置（访谈模拟）。"
+          outcome="可运行产品支持从输入到导出；验证连续流程可行，为 InsightFlow 等延伸铺路。"
+        />
       </Section>
 
-      <Section icon="⚡" title="快速看懂（Quick Scan）">
-        <ul className="list-disc list-inside space-y-1 text-slate-600">
-          <li>目标用户：需要快速整理洞察、输出方案并做优先级判断的产品经理</li>
-          <li>核心问题：工具分散，导致信息搬运重复、决策链路断裂</li>
-          <li>
-            我的工作：独立完成问题分析、流程设计、功能定义、迭代优化和上线展示
-          </li>
-          <li>
-            当前结果：完成可运行产品，已支持从输入问题到导出方案的完整链路
-          </li>
-        </ul>
+      <Section icon="🖼️" title="关键界面与流程">
+        <CaseImageGallery
+          images={[
+            {
+              src: ex("prodmind", "1首页.png"),
+              alt: "ProdMind 首页与流水线入口",
+              caption: "首页：洞察 → PRD → 优先级 → 验证的流水线入口。",
+            },
+            {
+              src: ex("prodmind", "3PRD生成-功能列表.png"),
+              alt: "PRD 生成功能列表",
+              caption: "PRD 生成：结构化功能列表等产出。",
+            },
+            {
+              src: ex("prodmind", "4优先级排序.png"),
+              alt: "优先级排序",
+              caption: "优先级：RICE 等取舍与排序界面。",
+            },
+          ]}
+        />
+      </Section>
+
+      <Section icon="📌" title="项目概述（Overview）">
+        <p>
+          ProdMind AI 帮助 PM
+          把模糊想法与零散反馈收敛为结构化决策，用流水线把步骤串起来。
+        </p>
+        <p className="text-slate-900 font-semibold">
+          一句话：把「洞察→方案→取舍→验证」串成一条可走完的路径。
+        </p>
       </Section>
 
       <Section icon="🎯" title="Problem（用户问题）">
