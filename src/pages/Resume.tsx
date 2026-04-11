@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, FileText } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
 
 export default function Resume() {
   const resumePdfUrl = `${import.meta.env.BASE_URL}resume.pdf`;
@@ -365,14 +365,6 @@ export default function Resume() {
               </div>
             </div>
           </section>
-        </div>
-
-        {/* Placeholder notice */}
-        <div className="mt-12 rounded-lg border border-white/5 bg-white/[0.02] p-5 flex items-start gap-3">
-          <FileText size={18} className="text-slate-500 mt-0.5 shrink-0" />
-          <p className="text-xs text-slate-500">
-            以上为主页展示版简历。如需用于投递的定制版本，可根据岗位方向再做调整。
-          </p>
         </div>
       </div>
     </div>
