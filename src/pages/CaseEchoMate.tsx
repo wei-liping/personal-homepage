@@ -13,10 +13,10 @@ export default function CaseEchoMate() {
 
   return (
     <CaseLayout
-      title="EchoMate — AI 对话辅助产品案例"
-      subtitle="Case Study #4"
-      tags={["AI 对话辅助", "社交场景", "Vue 3", "Vite", "决策支持"]}
-      tldr="帮助用户「把话说得更好」的对话决策工具：先做状态分析与策略，再给理由；不替用户说话，保留表达主动权。已上线可体验，并经试用迭代扩展场景。"
+      title="EchoMate — Prompt Strategy 与结构化推理 Demo"
+      subtitle="Case Study #5"
+      tags={["Prompt Strategy", "结构化推理", "Vue 3", "Vite", "轻量 Demo"]}
+      tldr="作为补充案例，展示 Prompt strategy 与结构化推理：先做状态分析，再给策略和理由，让输出比单句生成更稳定、更可解释。"
       github="https://github.com/wei-liping/EchoMate"
       live="https://wei-liping.github.io/EchoMate/"
       prev={{ to: "/case/prodmind", label: "ProdMind AI" }}
@@ -25,7 +25,7 @@ export default function CaseEchoMate() {
         <StarSummary
           context="社交与职场沟通里，用户常卡在「该不该回、怎么回、语气与节奏」而非缺一句话术。"
           challenge="通用生成工具给单句答案，难支撑对关系与对话阶段的判断。"
-          action="产品定位为决策辅助：状态分析 → 多策略与理由解释；结构化推理再生成。"
+          action="将 Prompt 链路拆成状态分析 → 多策略 → 理由解释，用结构化推理再生成。"
           outcome="Vue 3 可运行产品已公开展示；经真实试用迭代（如沟通风格维度与场景扩展）。"
         />
       </Section>

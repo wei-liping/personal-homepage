@@ -4,6 +4,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import Layout from "./components/Layout";
 import Landing from "./pages/Landing";
+import CaseKnowNet from "./pages/CaseKnowNet";
 import CaseJobHunter from "./pages/CaseJobHunter";
 import CaseInsightFlow from "./pages/CaseInsightFlow";
 import CaseEchoMate from "./pages/CaseEchoMate";
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Landing />} />
+          <Route path="case/knownet" element={<CaseKnowNet />} />
           <Route path="case/jobhunter" element={<CaseJobHunter />} />
           <Route path="case/insightflow" element={<CaseInsightFlow />} />
           <Route path="case/echomate" element={<CaseEchoMate />} />

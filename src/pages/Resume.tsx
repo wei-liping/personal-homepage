@@ -15,7 +15,7 @@ export default function Resume() {
           返回首页
         </Link>
 
-        <div className="flex items-start justify-between mb-8">
+        <div className="flex items-start justify-between mb-8 gap-4">
           <h1 className="text-3xl md:text-4xl font-bold text-slate-900">
             简历
           </h1>
@@ -29,13 +29,11 @@ export default function Resume() {
           </a>
         </div>
 
-        {/* Resume content */}
         <div className="space-y-12">
-          {/* Header */}
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-1">韦莉萍</h2>
             <p className="text-sm text-blue-600 font-mono mb-3">
-              AI产品经理 / AI Agent产品方向
+              AI Agent Engineer / AI 应用工程师 / RAG 与智能体应用开发
             </p>
             <div className="space-y-1 text-sm text-slate-600">
               <p>邮箱：weiliping@zju.edu.cn</p>
@@ -66,30 +64,79 @@ export default function Resume() {
 
           <hr className="border-gray-200 my-10" />
 
-          {/* Summary */}
           <section>
             <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               个人简介
             </h3>
             <p className="text-sm text-slate-600 leading-relaxed">
-              浙江大学物理学硕士；具备一线教学与独立 AI
-              产品实践。习惯从场景卡点出发，把复杂任务拆成可走完的流程，并关注证据、可复核与迭代，而不是单点生成功能堆砌。
+              浙江大学物理学硕士，具备逻辑建模、数据分析和复杂问题拆解能力。近期重点围绕
+              AI Agent、RAG 知识库、知识图谱、工具调用和多步骤任务流做项目，能够结合
+              Python、FastAPI、LangGraph、Docker Compose 搭建可运行、可验证、可迭代的 AI 应用链路。
             </p>
           </section>
 
           <hr className="border-gray-200 my-10" />
 
-          {/* Projects */}
           <section>
             <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
-              项目经历
+              重点项目
             </h3>
 
             <div className="space-y-8">
               <div>
                 <div className="flex items-baseline justify-between mb-2 gap-4">
                   <h4 className="text-sm font-semibold text-slate-900">
-                    JobHunter｜面向真实求职流程的 AI 工作台
+                    KnowNet｜基于大模型的知识库与知识图谱智能体开发平台
+                  </h4>
+                  <span className="text-xs text-slate-500 font-mono shrink-0">
+                    2025.11 - 至今
+                  </span>
+                </div>
+                <div className="space-y-1 text-sm text-slate-500 mb-3">
+                  <p>角色：独立负责</p>
+                  <p>
+                    项目案例：{" "}
+                    <a
+                      href="https://wei-liping.github.io/personal-homepage/#/case/knownet"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
+                    >
+                      wei-liping.github.io/personal-homepage/#/case/knownet
+                    </a>
+                  </p>
+                  <p>
+                    GitHub：{" "}
+                    <a
+                      href="https://github.com/wei-liping/KnowNet"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
+                    >
+                      github.com/wei-liping/KnowNet
+                    </a>
+                  </p>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
+                  <li>
+                    <span className="font-medium text-slate-700">背景：</span>
+                    企业知识问答和智能体应用常见问题是知识分散、回答不可追溯、Agent 能力难配置、工具与知识库难统一接入。
+                  </li>
+                  <li>
+                    <span className="font-medium text-slate-700">行动：</span>
+                    基于 LangGraph 搭建 Agent 运行链路，打通 RAG 知识库、LightRAG、Neo4j 图谱、工具调用、Skills、MCP 和子智能体配置。
+                  </li>
+                  <li>
+                    <span className="font-medium text-slate-700">结果：</span>
+                    使用 Docker Compose 整合 Web、API、Worker、PostgreSQL、Redis、MinIO、Milvus、Neo4j，支持本地启动和完整链路调试。
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-baseline justify-between mb-2 gap-4">
+                  <h4 className="text-sm font-semibold text-slate-900">
+                    JobHunter｜面向真实求职流程的 AI Agent Workflow
                   </h4>
                   <span className="text-xs text-slate-500 font-mono shrink-0">
                     2026.02 - 至今
@@ -123,187 +170,15 @@ export default function Resume() {
                 <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
                   <li>
                     <span className="font-medium text-slate-700">背景：</span>
-                    求职动作分散在招聘站、文档与笔记中，岗位与简历上下文难在同一路径延续。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">挑战：</span>
-                    单点生成无法承接「看岗—改简历—练习—沉淀」的多步链路。
+                    岗位搜索、JD 分析、简历修改、模拟面试和复盘记录分散在不同工具中，导致上下文反复丢失。
                   </li>
                   <li>
                     <span className="font-medium text-slate-700">行动：</span>
-                    四栏信息架构（岗位探索 / 简历优化 / 模拟面试 /
-                    内容管理），接入本机 BOSS 搜索，关键记录本地沉淀。
+                    将求职任务拆解为岗位探索、JD 解析、匹配评估、简历改写、模拟面试和内容沉淀多个步骤。
                   </li>
                   <li>
                     <span className="font-medium text-slate-700">结果：</span>
-                    可运行本地工作台与可演示主路径，验证 AI
-                    更适合承接任务链而非单次生成。
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-900">
-                    InsightFlow AI｜多 Agent 用户洞察与产品决策系统
-                  </h4>
-                  <span className="text-xs text-slate-500 font-mono shrink-0">
-                    2026.03 - 至今
-                  </span>
-                </div>
-                <div className="space-y-1 text-sm text-slate-500 mb-3">
-                  <p>角色：独立负责</p>
-                  <p>
-                    项目案例：{" "}
-                    <a
-                      href="https://wei-liping.github.io/personal-homepage/#/case/insightflow"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      wei-liping.github.io/personal-homepage/#/case/insightflow
-                    </a>
-                  </p>
-                  <p>
-                    GitHub：{" "}
-                    <a
-                      href="https://github.com/wei-liping/InsightFlow"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      github.com/wei-liping/InsightFlow
-                    </a>
-                  </p>
-                </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
-                  <li>
-                    <span className="font-medium text-slate-700">背景：</span>
-                    反馈体量大且分散，从洞察到优先级、PRD
-                    与验证常断在多工具之间。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">挑战：</span>
-                    长链路单次生成易漂移；缺来源与复核时结论难进评审。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">行动：</span>
-                    基于 LangGraph 多 Agent 拆分步骤；RAG
-                    与共享反馈库支撑证据；关键节点支持人工校准后继续。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">结果：</span>
-                    可运行工作台打通采集到导出，强调可追溯与「判断可继续」。
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-900">
-                    EchoMate｜AI 对话决策辅助工具
-                  </h4>
-                  <span className="text-xs text-slate-500 font-mono shrink-0">
-                    2026 - 至今
-                  </span>
-                </div>
-                <div className="space-y-1 text-sm text-slate-500 mb-3">
-                  <p>角色：独立负责</p>
-                  <p>
-                    项目案例：{" "}
-                    <a
-                      href="https://wei-liping.github.io/personal-homepage/#/case/echomate"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      wei-liping.github.io/personal-homepage/#/case/echomate
-                    </a>
-                  </p>
-                  <p>
-                    GitHub：{" "}
-                    <a
-                      href="https://github.com/wei-liping/EchoMate"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      github.com/wei-liping/EchoMate
-                    </a>
-                  </p>
-                </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
-                  <li>
-                    <span className="font-medium text-slate-700">背景：</span>
-                    用户更需要「策略与阶段判断」，而非一句话术生成。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">挑战：</span>
-                    直接生成回复会绕过判断，难以形成可迁移的沟通方法。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">行动：</span>
-                    设计「状态分析 → 多策略 →
-                    理由解释」链路；产品已公开展示并可访问。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">结果：</span>
-                    经试用迭代扩展场景与维度（如沟通风格），强化决策辅助定位。
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex items-baseline justify-between mb-2 gap-4">
-                  <h4 className="text-sm font-semibold text-slate-900">
-                    ProdMind AI｜PM 决策工作台探索（早期）
-                  </h4>
-                  <span className="text-xs text-slate-500 font-mono shrink-0">
-                    2026 - 至今
-                  </span>
-                </div>
-                <div className="space-y-1 text-sm text-slate-500 mb-3">
-                  <p>角色：独立负责</p>
-                  <p>
-                    项目案例：{" "}
-                    <a
-                      href="https://wei-liping.github.io/personal-homepage/#/case/prodmind"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      wei-liping.github.io/personal-homepage/#/case/prodmind
-                    </a>
-                  </p>
-                  <p>
-                    GitHub：{" "}
-                    <a
-                      href="https://github.com/wei-liping/ProdMind-AI"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-blue-600 hover:text-blue-800 underline-offset-2 hover:underline transition-colors"
-                    >
-                      github.com/wei-liping/ProdMind-AI
-                    </a>
-                  </p>
-                </div>
-                <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 leading-relaxed">
-                  <li>
-                    <span className="font-medium text-slate-700">背景：</span>
-                    洞察、方案、优先级与验证分散，决策链路易断。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">挑战：</span>
-                    自由长文难用于评审；需验证「连续流程」是否成立。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">行动：</span>
-                    引导式流水线 + 结构化输出（痛点、Persona、RICE 等）+
-                    验证前置。
-                  </li>
-                  <li>
-                    <span className="font-medium text-slate-700">结果：</span>
-                    跑通从输入到导出，为 InsightFlow 等后续方向提供框架基础。
+                    围绕 JD 与简历上下文生成结构化输出，并保存岗位记录、简历版本、面试问答和复盘内容。
                   </li>
                 </ul>
               </div>
@@ -312,7 +187,40 @@ export default function Resume() {
 
           <hr className="border-gray-200 my-10" />
 
-          {/* Work */}
+          <section>
+            <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
+              补充项目
+            </h3>
+            <div className="space-y-5 text-sm text-slate-600 leading-relaxed">
+              <div>
+                <p className="text-slate-900 font-semibold">
+                  InsightFlow AI｜多 Agent 分析链路
+                </p>
+                <p>
+                  将反馈输入、主题分析、策略生成和验证拆成多 Agent 链路，重点验证 RAG、证据保留、评估与复核。
+                </p>
+              </div>
+              <div>
+                <p className="text-slate-900 font-semibold">
+                  ProdMind AI｜早期 Workflow 与结构化输出探索
+                </p>
+                <p>
+                  早期验证 workflow 与 structured output，把洞察、方案、优先级和验证串起来，为后续 Agent 链路拆分打基础。
+                </p>
+              </div>
+              <div>
+                <p className="text-slate-900 font-semibold">
+                  EchoMate｜Prompt Strategy 与结构化推理 Demo
+                </p>
+                <p>
+                  将对话辅助从单句生成改为状态分析、策略建议和理由解释，作为 Prompt strategy 与结构化推理的轻量 demo。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <hr className="border-gray-200 my-10" />
+
           <section>
             <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               工作经历
@@ -323,7 +231,7 @@ export default function Resume() {
                   杭州市富阳区江南中学｜高中物理教师
                 </p>
                 <p>
-                  长期处在高密度反馈环境中，持续观察不同人面对复杂任务时的理解负担、问题拆解方式和反馈差异。这段经历也让我更重视真实用户场景中的行为差异，而不是只停留在抽象需求层面。
+                  长期处在高密度反馈环境中，持续观察不同人面对复杂任务时的理解负担、问题拆解方式和反馈差异。这段经历让我更重视真实场景里的引导、反馈和复盘。
                 </p>
               </div>
             </div>
@@ -331,7 +239,6 @@ export default function Resume() {
 
           <hr className="border-gray-200 my-10" />
 
-          {/* Education */}
           <section>
             <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               教育与科研
@@ -356,23 +263,21 @@ export default function Resume() {
 
           <hr className="border-gray-200 my-10" />
 
-          {/* Skills */}
           <section>
             <h3 className="text-xs font-mono text-slate-500 uppercase tracking-[0.2em] mb-4">
               核心能力
             </h3>
             <div className="grid sm:grid-cols-2 gap-4 text-sm text-slate-600 leading-relaxed">
               <div>
-                <p className="text-slate-900 font-semibold mb-2">产品</p>
+                <p className="text-slate-900 font-semibold mb-2">工程开发</p>
                 <p>
-                  用户洞察 · 需求分析 · 任务流程设计 · 决策辅助设计 · 结构化表达
+                  Python · FastAPI · Vue · Docker Compose · Git · 前后端接口联调
                 </p>
               </div>
               <div>
-                <p className="text-slate-900 font-semibold mb-2">技术</p>
+                <p className="text-slate-900 font-semibold mb-2">AI 应用</p>
                 <p>
-                  React / Vue · TypeScript · Prompt Engineering · LLM API ·
-                  Workflow 设计
+                  LangGraph · RAG · 知识图谱 · 工具调用 · MCP / Skills · Badcase 复盘
                 </p>
               </div>
             </div>

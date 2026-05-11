@@ -31,28 +31,28 @@ export default function ProjectCard({
   const body =
     story && story.length === 3 ? (
       <div className="space-y-2.5 mb-4 text-sm text-slate-600 leading-relaxed">
-        <p>
+        <p className="break-words">
           <span className="font-semibold text-slate-800">问题 · </span>
           {story[0]}
         </p>
-        <p>
+        <p className="break-words">
           <span className="font-semibold text-slate-800">行动 · </span>
           {story[1]}
         </p>
-        <p>
+        <p className="break-words">
           <span className="font-semibold text-slate-800">结果 · </span>
           {story[2]}
         </p>
       </div>
     ) : (
-      <p className="text-base text-slate-600 leading-relaxed mb-4">
+      <p className="text-base text-slate-600 leading-relaxed mb-4 break-words">
         {description}
       </p>
     );
 
   const content = (
     <div
-      className={`group interactive-card relative rounded-2xl border bg-white p-7 card-shadow ${
+      className={`group interactive-card relative w-full min-w-0 rounded-2xl border bg-white p-5 sm:p-7 card-shadow ${
         featured
           ? "border-blue-200/80 ring-1 ring-blue-100/80"
           : "border-gray-200/90"
@@ -76,8 +76,8 @@ export default function ProjectCard({
       <p className="text-sm font-mono text-blue-600 mb-2 tracking-wide">
         {subtitle}
       </p>
-      <h3 className="text-xl font-semibold text-slate-900 mb-3 flex items-center gap-2 tracking-tight pr-16">
-        {title}
+      <h3 className="text-xl font-semibold text-slate-900 mb-3 flex min-w-0 items-center gap-2 tracking-tight pr-16">
+        <span className="min-w-0 break-words">{title}</span>
         {!comingSoon && (
           <ArrowUpRight
             size={16}
@@ -115,7 +115,7 @@ export default function ProjectCard({
   return (
     <Link
       to={to}
-      className="block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/45 focus-visible:ring-offset-2"
+      className="block w-full min-w-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/45 focus-visible:ring-offset-2"
     >
       {content}
     </Link>

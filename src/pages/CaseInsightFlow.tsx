@@ -11,20 +11,20 @@ const ex = (folder: string, name: string) =>
 export default function CaseInsightFlow() {
   return (
     <CaseLayout
-      title="InsightFlow AI — 多 Agent 驱动的用户洞察与产品决策系统"
-      subtitle="Case Study #2"
-      tags={["AI PM 工具", "多 Agent", "RAG", "Next.js", "决策工作流"]}
-      tldr="面向「反馈很多却难形成判断」：把输入、分析、优先级、PRD 与验证串成一条工作流；用多 Agent 稳住长链路，并尽量保留来源与复核点，让结论可解释、可继续。"
+      title="InsightFlow AI — 多 Agent 分析链路与 RAG 证据复核"
+      subtitle="Case Study #3"
+      tags={["Multi-Agent", "RAG", "评估/复核", "Next.js", "结构化输出"]}
+      tldr="作为补充案例，展示多 Agent 分析链路：把反馈输入、主题分析、策略生成和验证拆成步骤，并保留来源、证据、评估与复核点。"
       github="https://github.com/wei-liping/InsightFlow"
       prev={{ to: "/case/jobhunter", label: "JobHunter AI" }}
       next={{ to: "/case/prodmind", label: "ProdMind AI" }}
     >
       <Section icon="📋" title="一页看懂（背景 → 挑战 → 行动 → 结果）">
         <StarSummary
-          context="海量反馈散落在各渠道，PM 需要尽快从噪声里抽出可行动判断。"
-          challenge="长链路一次性生成易漂移；若缺少来源与复核，结果难拿去评审或落地。"
-          action="多 Agent 拆分步骤；结合检索与共享反馈库；关键节点支持人工校准后再推进。"
-          outcome="可运行工作台打通采集到导出；强调证据可追溯与过程可继续，降低黑盒感。"
+          context="海量反馈散落在各渠道，需要从非结构化输入里提取主题、证据和可执行策略。"
+          challenge="长链路一次性生成易漂移；若缺少来源、评估和复核，结果难以被继续使用。"
+          action="用多 Agent 拆分清洗、痛点分析、主题分析、审查、合议和策略生成，并结合 RAG 与共享反馈库。"
+          outcome="补充展示多 Agent 协作、证据追溯、结构化输出和人工复核能力。"
         />
       </Section>
 

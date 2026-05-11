@@ -11,10 +11,10 @@ const ex = (folder: string, name: string) =>
 export default function CaseProdMind() {
   return (
     <CaseLayout
-      title="ProdMind AI — 像产品经理一样思考的 AI Copilot"
-      subtitle="Case Study #3"
-      tags={["AI PM 工具", "工作流", "Next.js", "RICE", "结构化决策"]}
-      tldr="把 PM 碎片工作串成一条流水线：洞察、PRD、优先级与验证前后衔接，输出结构化卡片与导出；为后续更重证据与多 Agent 的方向提供早期验证。"
+      title="ProdMind AI — 早期 Workflow 与结构化输出探索"
+      subtitle="Case Study #4"
+      tags={["Workflow", "Structured Output", "Next.js", "RICE", "早期验证"]}
+      tldr="作为早期补充案例，验证 workflow 与 structured output：把洞察、方案、优先级和验证串成连续步骤，为后续多 Agent 链路拆分打基础。"
       github="https://github.com/wei-liping/ProdMind-AI"
       live="https://wei-liping.github.io/ProdMind-AI/"
       prev={{ to: "/case/insightflow", label: "InsightFlow AI" }}

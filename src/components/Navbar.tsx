@@ -19,7 +19,7 @@ export default function Navbar() {
           to="/"
           className="interactive-link font-mono text-base font-semibold text-blue-600 hover:text-slate-900 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2"
         >
-          韦莉萍.pm
+          韦莉萍.ai agent engineer
         </Link>
 
         {/* Desktop */}
